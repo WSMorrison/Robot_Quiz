@@ -16,12 +16,6 @@ body {
     align-items: center;
 }
 
-.score-box {
-    background-color:red;
-    height: 10rem;
-    width: 10rem;
-}
-
 #header-box {
     background-color:aqua;
     height: 9rem;
@@ -31,12 +25,18 @@ body {
 
 #scores-container {
     background-color:aqua;
-    height: 15rem;
+    height: 10rem;
     width: 30rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.score-box {
+    background-color:red;
+    height: 7rem;
+    width: 10rem;
 }
 
 #question-container {

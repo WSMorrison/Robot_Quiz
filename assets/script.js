@@ -1,4 +1,4 @@
-console.log ('JavaScript has been called correcly.');
+console.log ('JavaScript file has been called correctly.');
 
 /*
 
