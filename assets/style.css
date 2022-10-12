@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    background-color: rgb(170, 170, 170);
+    background-color: rgb(180, 180, 180);
     font-size: 1.6rem;
 }
 
@@ -17,14 +17,14 @@ body {
 }
 
 #header-box {
-    background-color:aqua;
+    background-color:rgb(170, 170, 170);
     height: 9rem;
     width: 30rem;
     text-align: center;
 }
 
 #scores-container {
-    background-color:aqua;
+    background-color:rgb(170, 170, 170);
     height: 10rem;
     width: 30rem;
     display: flex;
@@ -34,13 +34,13 @@ body {
 }
 
 .score-box {
-    background-color:red;
+    background-color:rgb(160, 160, 160);
     height: 7rem;
     width: 10rem;
 }
 
 #question-container {
-    background-color:aqua;
+    background-color:rgb(170, 170, 170);
     height: 45rem;
     width: 30rem;
     display: flex;
@@ -50,19 +50,19 @@ body {
 }
 
 #player-picture {
-    background-color:brown;
+    background-color:rgb(140, 140, 140);
     height: 10rem;
     width: 10rem;
 }
 
 #question-display {
-    background-color:blueviolet;
+    background-color:rgb(160, 160, 160);
     height: 15rem;
     width: 30rem;
 }
 
 #answer-display {
-    background-color:blueviolet;
+    background-color:rgb(160, 160, 160);
     height: 15rem;
     width: 30rem;
     display: flex;
@@ -73,13 +73,20 @@ body {
 }
 
 .answer {
-    background-color:blue;
+    background-color:rgb(150, 150, 150);
     height: 4rem;
     width: 11rem;
 }
 
 #button-container {
-    background-color:blueviolet;
+    background-color:rgb(160, 160, 160);
     height: 5rem;
     width: 30rem;
+}
+
+#footer-box {
+    background-color:rgb(170, 170, 170);
+    height: 3rem;
+    width: 30rem;
+    text-align: center;
 }
