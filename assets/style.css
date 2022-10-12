@@ -51,6 +51,8 @@ body {
 
 #question-box {
     background-color: rgb(160, 160, 160);
+    height: 25rem;
+    width: 30rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -119,11 +121,49 @@ body {
         flex-direction: row;
     }
 
-    #question-display {
-        width: 40rem;
+    #player-picture {
+        height: 15rem;
+        width: 15rem;
     }
 
     #answer-display {
         width: 55rem;
     }
+}
+
+@media only screen and (min-width: 768px) {
+
+    #header-box {
+        width: 75rem;
+        font-size: 2.5rem;
+    }    
+
+    #question-container {
+        height: 60rem;
+        width: 75rem;
+    }
+
+    #footer-box {
+        width: 75rem;
+    }
+
+    #question-box {
+        width: 75rem;
+        font-size: 2.5rem;
+    }
+
+    #player-picture {
+        height: 25rem;
+        width: 25rem;
+    }
+
+    #question-display {
+        height: 25rem;
+        width: 45rem;
+    }
+
+    #answer-display {
+        width: 75rem;
+    }
+
 }
