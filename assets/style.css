@@ -1,3 +1,85 @@
+html {
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: rgb(170, 170, 170);
+    font-size: 1.6rem;
+}
+
+.center {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-box {
+    background-color:red;
+    height: 10rem;
+    width: 10rem;
+}
+
+#header-box {
+    background-color:aqua;
+    height: 9rem;
+    width: 30rem;
+    text-align: center;
+}
+
+#scores-container {
+    background-color:aqua;
+    height: 15rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#question-container {
+    background-color:aqua;
+    height: 45rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#player-picture {
+    background-color:brown;
+    height: 10rem;
+    width: 10rem;
+}
+
+#question-display {
+    background-color:blueviolet;
+    height: 15rem;
+    width: 30rem;
+}
+
+#answer-display {
+    background-color:blueviolet;
+    height: 15rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.answer {
+    background-color:blue;
+    height: 4rem;
+    width: 11rem;
+}
+
+#button-container {
+    background-color:blueviolet;
+    height: 5rem;
+    width: 30rem;
 }
