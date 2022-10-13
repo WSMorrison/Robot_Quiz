@@ -10,23 +10,32 @@ let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&t
 async function goGetApi() {
     let apiData = await fetch(apiUrl);
     let questions = await apiData.json();
-    console.log('Questions have been retrieved successfully.');
-    console.log(questions);
-    console.log(questions.results[questionNumber].question);
+    console.log('Questions have been retrieved successfully.'); // Tells me that this function is operating.
+    console.log(questions.results[0].question); // Logs first question to check against iteration.
+    console.log(questions.results[questionNumber].question); // These five lines give me reference for building the game later.
     console.log(questions.results[questionNumber].correct_answer);
     console.log(questions.results[questionNumber].incorrect_answers[0]);
     console.log(questions.results[questionNumber].incorrect_answers[1]);
     console.log(questions.results[questionNumber].incorrect_answers[2]);
-    console.log('You did it you magnificent bastard.');
+    console.log('You did it you magnificent bastard.'); // Logs a motivational message to keep me from crying.
 }
 
 goGetApi();
 
-/*
 function calculateWhoIsAnswering () {
-
+    let playerQuery = (questionNumber + 2) % 2;
+    if (playerQuery) {
+        player = 'Robot';
+    } else {
+        player = 'User';
+    }
+    console.log('It is the ' + player + "'s turn.");
 }
 
+calculateWhoIsAnswering();
+
+
+/*
 // User functions
 function displayUserQuestion () {
 
