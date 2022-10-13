@@ -22,7 +22,7 @@ async function goGetApi() {
 
 goGetApi();
 
-function calculateWhoIsAnswering () {
+function calculateWhoIsAnswering () { // Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array
     let playerQuery = (questionNumber + 2) % 2;
     if (playerQuery) {
         player = 'Robot';
@@ -32,15 +32,20 @@ function calculateWhoIsAnswering () {
     console.log('It is the ' + player + "'s turn.");
 }
 
-calculateWhoIsAnswering();
+function displayUserQuestion () {
+    let questionDisplay = document.getElementById('question');
+    questionDisplay.innerHTML = (questions.results[questionNumber].question);
+}
 
+function playTheGame() {
+    calculateWhoIsAnswering();
+    displayUserQuestion();
+}
+
+window.onload = playTheGame();
 
 /*
 // User functions
-function displayUserQuestion () {
-
-}
-
 function retrieveUserAnswer () {
 
 }
