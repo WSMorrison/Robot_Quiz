@@ -18,6 +18,7 @@ async function goGetApi() {
     console.log(questions.results[questionNumber].incorrect_answers[1]);
     console.log(questions.results[questionNumber].incorrect_answers[2]);
     console.log('You did it you magnificent bastard.'); // Logs a motivational message to keep me from crying.
+    return 
 }
 
 goGetApi();
@@ -42,7 +43,6 @@ function playTheGame() {
     displayUserQuestion();
 }
 
-window.onload = playTheGame();
 
 /*
 // User functions
