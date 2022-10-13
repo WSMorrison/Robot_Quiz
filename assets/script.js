@@ -9,11 +9,10 @@ let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&t
 
 async function goGetApi() {
     let apiData = await fetch(apiUrl);
-    let questionsJson = await apiData.json();
-    console.log('Butts');
-    let questions = JSON.parse(questionsJson);
+    let questions = await apiData.json();
     console.log('fart!');
     console.log(questions);
+    console.log();
 }
 
 goGetApi();
