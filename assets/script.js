@@ -16,7 +16,6 @@ async function goGetApi() {
 
 goGetApi();
 
-
 /*
 function calculateWhoIsAnswering () {
 
