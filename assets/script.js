@@ -1,12 +1,22 @@
 console.log ('JavaScript file has been called correctly.');
 
-/*
+// Global variables
+
+let questionNumber = 1;
+let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
 
 // Global functions
-function goGetQuestions () {
 
+async function goGetApi() {
+    let apiData = await fetch(apiUrl);
+    let questions = await apiData.json();
+    console.log('farts');
+    console.log(questions);
 }
 
+goGetApi();
+
+/*
 function calculateWhoIsAnswering () {
 
 }

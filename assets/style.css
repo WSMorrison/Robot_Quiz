@@ -60,7 +60,8 @@ body {
 }
 
 #player-picture {
-    background-color:rgb(130, 130, 130);
+    background: url(.//images/player-robot.png) center;
+    background-size: cover;
     height: 10rem;
     width: 10rem;
 }
@@ -118,7 +119,8 @@ body {
 
     #question-box {
         width: 55rem;
-        flex-direction: row;
+        /* Flip the player picture and question HERE */
+        flex-direction: row-reverse;
     }
 
     #player-picture {
