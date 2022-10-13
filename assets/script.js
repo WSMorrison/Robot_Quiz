@@ -1,4 +1,4 @@
-console.log ('JavaScript file has been called correctly.');
+console.log ('JavaScript file has been called sucessfully.');
 
 // Global variables
 
@@ -9,10 +9,10 @@ let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&t
 
 async function goGetApi() {
     let apiData = await fetch(apiUrl);
-    let questions = await apiData.json();
-    console.log('fart!');
-    console.log(questions);
-    console.log();
+    let questionsRetrieved = await apiData.json();
+    console.log('Questions have been retrieved successfully.');
+    console.log(questionsRetrieved);
+    console.log(questionsRetrieved.results[1].question);
 }
 
 goGetApi();
