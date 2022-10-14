@@ -8,6 +8,7 @@ let questions;
 
 // Global functions
 
+// Retrieves the questions and check the retreival in console.
 async function goGetApi() {
     let apiData = await fetch(apiUrl);
     questions = await apiData.json();
@@ -26,7 +27,8 @@ goGetApi().then(
     function() {playTheGame()}
 );
 
-function calculateWhoIsAnswering() { // Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array
+// Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array
+function calculateWhoIsAnswering() { 
     let playerQuery = (questionNumber + 2) % 2;
     if (playerQuery) {
         player = 'Robot';
@@ -36,6 +38,7 @@ function calculateWhoIsAnswering() { // Decides who's turn it is, starting with 
     console.log('It is the ' + player + "'s turn.");
 }
 
+// Changes the orientation of the question-box div and the image in the player-image div based on whose turn it is.
 function changeDiv() {
     let questionBox = document.getElementById('question-box');
     let playerImage = document.getElementById('player-picture');
@@ -54,12 +57,14 @@ function changeDiv() {
     }
 }
 
+// Displays the question in the question-box div
 function displayUserQuestion () {
     let questionDisplay = document.getElementById('question');
     questionDisplay.innerHTML = (questions.results[questionNumber].question);
 }
 
-function playTheGame() { // Starts the game.
+// Starts gameplay after the questions have been retrieved.
+function playTheGame() {
     calculateWhoIsAnswering();
     displayUserQuestion();
     changeDiv(); // Think about if this should be here or nested inside another function. 
