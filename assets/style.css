@@ -49,7 +49,17 @@ body {
     align-items: center;
 }
 
-#question-box {
+#question-box-user {
+    background-color: rgb(160, 160, 160);
+    height: 25rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#question-box-robot {
     background-color: rgb(160, 160, 160);
     height: 25rem;
     width: 30rem;
@@ -117,9 +127,14 @@ body {
         width: 55rem;
     }
 
-    #question-box {
+    #question-box-user {
         width: 55rem;
         /* Flip the player picture and question HERE */
+        flex-direction: row;
+    }
+
+    #question-box-robot {
+        width: 55rem;
         flex-direction: row-reverse;
     }
 
@@ -149,7 +164,12 @@ body {
         width: 75rem;
     }
 
-    #question-box {
+    #question-box-user {
+        width: 75rem;
+        font-size: 2.5rem;
+    }
+
+    #question-box-robot {
         width: 75rem;
         font-size: 2.5rem;
     }

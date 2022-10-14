@@ -36,12 +36,26 @@ function calculateWhoIsAnswering () { // Decides who's turn it is, starting with
     console.log('It is the ' + player + "'s turn.");
 }
 
+function changeDiv () {
+    if (player = 'User') {
+        document.getElementById('question-box-robot').setAttribute('id', 'question-box-user');
+        let playerPicture = document.getElementById('player-picture');
+        playerPicture.style.background = 'url(.//images/player-user.png) center';
+        console.log('Picture changed to user.');
+    } else if (player = 'Robot') {
+        document.getElementById('question-box-user').setAttribute('id', 'question-box-user');
+        let playerPicture = document.getElementById('player-picture');
+        playerPicture.style.background = 'url(.//images/player-robot.png) center';
+        console.log('Picture changed to robot.');
+    }
+}
+
 function displayUserQuestion () {
     let questionDisplay = document.getElementById('question');
     questionDisplay.innerHTML = (questions.results[questionNumber].question);
 }
 
-function playTheGame() {
+function playTheGame() { // Starts the game.
     calculateWhoIsAnswering();
     displayUserQuestion();
     console.log('You did it you magnificent bastard.'); // Logs a motivational message to keep me from crying.
