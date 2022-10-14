@@ -1,12 +1,12 @@
 console.log ('JavaScript file has been called sucessfully.');
 
-// Global variables
+// Global variables.
 
-let questionNumber = 0; // Set for start, currently used for diagnostics
+let questionNumber = 0; // Set for start, currently also used for diagnostics.
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
 let questions;
 
-// Global functions
+// Global functions.
 
 // Retrieves the questions and check the retreival in console.
 async function goGetApi() {
@@ -27,7 +27,7 @@ goGetApi().then(
     function() {playTheGame()}
 );
 
-// Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array
+// Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array.
 function calculateWhoIsAnswering() { 
     let playerQuery = (questionNumber + 2) % 2;
     if (playerQuery) {
@@ -64,26 +64,27 @@ function changeDiv() {
     }
 }
 
-// Displays the question in the question-box div
+// Displays the question in the question-box div.
 function displayUserQuestion() {
     let questionDisplay = document.getElementById('question');
     questionDisplay.innerHTML = (questions.results[questionNumber].question);
 }
 
+// Calculate a random position for the correct answer, and display the correct answer in the correct position among incorrect answers in the other positions.
 function displayAnswers() {
-    let correctPosition = Math.floor(Math.random() * 4) + 1; //Calculate which position to place the correct answer.
-    let incorrectPosition = 0;
+    let correctPosition = Math.floor(Math.random() * 4) + 1; // Calculate which position to place the correct answer.
+    let incorrectPosition = 0; // Set incorrect position for incrementing.
     let answerOne = document.getElementById('answer-one');
     let answerTwo = document.getElementById('answer-two');
     let answerThree = document.getElementById('answer-three');
     let answerFour = document.getElementById('answer-four');
     console.log(correctPosition);
-    // 1
-    if (correctPosition === 1) {
-        answerOne.innerHTML = (questions.results[questionNumber].correct_answer);
+    // Handle position 1.
+    if (correctPosition === 1) { // Check if position is "correct" position.
+        answerOne.innerHTML = (questions.results[questionNumber].correct_answer); // Populate with correct answer if so.
     } else {
-        answerOne.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]);
-        incorrectPosition++;
+        answerOne.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]); // Populate with incorrect answer if not.
+        incorrectPosition++; // Increment incorrect answer so it isn't inadvertantly reused.
     }
     // 2
     if (correctPosition === 2) {
