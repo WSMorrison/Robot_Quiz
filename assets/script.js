@@ -41,14 +41,21 @@ function calculateWhoIsAnswering() {
 // Changes the orientation of the question-box div and the image in the player-image div based on whose turn it is.
 function changeDiv() {
     let questionBox = document.getElementById('question-box');
+    // Checks the window width before reorienting the div.
+    if (window.matchMedia('(min-width: 576px)').matches) {
+        if (player === 'User') {
+            questionBox.style.flexDirection = 'row';
+        } else if (player === 'Robot') {
+            questionBox.style.flexDirection = 'row-reverse';
+        }
+    }
+    // Changes the player image.
     let playerImage = document.getElementById('player-picture');
     if (player === 'User') {
-        questionBox.style.flexDirection = 'row';
         playerImage.style.background = 'url(.//assets/images/player-user.png)';
         playerImage.style.backgroundPosition = 'center';
         playerImage.style.backgroundSize = 'cover';
     } else if (player === 'Robot') {
-        questionBox.style.flexDirection = 'row-reverse';
         playerImage.style.background = 'url(.//assets/images/player-robot.png)';
         playerImage.style.backgroundPosition = 'center';
         playerImage.style.backgroundSize = 'cover';
