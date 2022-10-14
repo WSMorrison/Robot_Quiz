@@ -4,12 +4,13 @@ console.log ('JavaScript file has been called sucessfully.');
 
 let questionNumber = 0;
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
+let questions;
 
 // Global functions
 
 async function goGetApi() {
     let apiData = await fetch(apiUrl);
-    let questions = await apiData.json();
+    questions = await apiData.json();
     console.log('Questions have been retrieved successfully.'); // Tells me that this function is operating.
     console.log(questions.results[0].question); // Logs first question to check against iteration.
     console.log(questions.results[questionNumber].question); // These five lines give me reference for building the game later.
@@ -17,11 +18,13 @@ async function goGetApi() {
     console.log(questions.results[questionNumber].incorrect_answers[0]);
     console.log(questions.results[questionNumber].incorrect_answers[1]);
     console.log(questions.results[questionNumber].incorrect_answers[2]);
-    console.log('You did it you magnificent bastard.'); // Logs a motivational message to keep me from crying.
-    return 
+
+    return questions;
 }
 
-goGetApi();
+goGetApi().then(
+    function() {playTheGame()}
+);
 
 function calculateWhoIsAnswering () { // Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array
     let playerQuery = (questionNumber + 2) % 2;
@@ -41,6 +44,7 @@ function displayUserQuestion () {
 function playTheGame() {
     calculateWhoIsAnswering();
     displayUserQuestion();
+    console.log('You did it you magnificent bastard.'); // Logs a motivational message to keep me from crying.
 }
 
 
