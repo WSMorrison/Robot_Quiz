@@ -49,7 +49,7 @@ body {
     align-items: center;
 }
 
-#question-box-user {
+#question-box-id {
     background-color: rgb(160, 160, 160);
     height: 25rem;
     width: 30rem;
@@ -127,7 +127,7 @@ body {
         width: 55rem;
     }
 
-    #question-box-user {
+    #question-box-id {
         width: 55rem;
         /* Flip the player picture and question HERE */
         flex-direction: row;
@@ -164,7 +164,7 @@ body {
         width: 75rem;
     }
 
-    #question-box-user {
+    #question-box-id {
         width: 75rem;
         font-size: 2.5rem;
     }

@@ -37,6 +37,18 @@ function calculateWhoIsAnswering() { // Decides who's turn it is, starting with 
 }
 
 function changeDiv() {
+    let questionBox = document.getElementById('question-box-id');
+    console.log(player);
+    if (player === 'User') {
+        questionBox.style.flexDirection = 'row';
+    } else if (player === 'Robot') {
+        questionBox.style.flexDirection = 'row-reverse';
+    }
+    console.log(questionBox.style.flexDirection);
+}
+
+/*
+function changeDiv() {
     let playerDiv = document.getElementsByClassName('question-box');
     console.log(playerDiv);
     if (player === 'User') {
