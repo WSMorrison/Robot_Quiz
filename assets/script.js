@@ -26,7 +26,7 @@ goGetApi().then(
     function() {playTheGame()}
 );
 
-function calculateWhoIsAnswering () { // Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array
+function calculateWhoIsAnswering() { // Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array
     let playerQuery = (questionNumber + 2) % 2;
     if (playerQuery) {
         player = 'Robot';
@@ -35,6 +35,48 @@ function calculateWhoIsAnswering () { // Decides who's turn it is, starting with
     }
     console.log('It is the ' + player + "'s turn.");
 }
+
+function changeDiv() {
+    let playerDiv = document.getElementsByClassName('question-box');
+    console.log(playerDiv);
+    if (player === 'User') {
+        playerDiv.setAttribute("id", "question-box-user");
+    } else if (player === 'Robot') {
+        playerDiv.setAttribute("id", "question-box-robot");
+    }
+    console.log(player);
+    console.log(playerDiv);
+}
+
+/*
+function changeDiv () {
+    let playerPicture = document.getElementById('player-picture');
+    if (player === 'User') {
+        playerPicture.style.background = 'url(.//images/player-user.png)';
+    } else if (player === 'Robot') {
+        playerPicture.style.background = 'url(.//images/player-robot.png)';
+    }
+    console.log(player);
+    console.log(playerPicture);
+    console.log(playerPicture.style.background);
+}
+
+/*
+    if (player === 'User') {
+        document.getElementById('question-box-robot').setAttribute('id', 'question-box-user');
+        let playerPicture = document.getElementById('player-picture');
+        playerPicture.style.background = 'url(.//images/player-user.png) center';
+        console.log('Picture changed to user.');
+    } else if (player === 'Robot') {
+        document.getElementById('question-box-user').setAttribute('id', 'question-box-user');
+        let playerPicture = document.getElementById('player-picture');
+        playerPicture.style.background = 'url(.//images/player-robot.png) center';
+        console.log('Picture changed to robot.');
+    } else {
+        console.log('No change.'); 
+    }
+}
+*/
 
 function displayUserQuestion () {
     let questionDisplay = document.getElementById('question');
