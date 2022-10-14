@@ -2,7 +2,7 @@ console.log ('JavaScript file has been called sucessfully.');
 
 // Global variables
 
-let questionNumber = 0;
+let questionNumber = 0; // Set for start, currently used for diagnostics
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
 let questions;
 
@@ -37,58 +37,22 @@ function calculateWhoIsAnswering() { // Decides who's turn it is, starting with 
 }
 
 function changeDiv() {
-    let questionBox = document.getElementById('question-box-id');
-    console.log(player);
+    let questionBox = document.getElementById('question-box');
+    let playerImage = document.getElementById('player-picture');
     if (player === 'User') {
         questionBox.style.flexDirection = 'row';
+        playerImage.style.background = 'url(.//assets/images/player-user.png)';
+        playerImage.style.backgroundPosition = 'center';
+        playerImage.style.backgroundSize = 'cover';
     } else if (player === 'Robot') {
         questionBox.style.flexDirection = 'row-reverse';
-    }
-    console.log(questionBox.style.flexDirection);
-}
-
-/*
-function changeDiv() {
-    let playerDiv = document.getElementsByClassName('question-box');
-    console.log(playerDiv);
-    if (player === 'User') {
-        playerDiv.setAttribute("id", "question-box-user");
-    } else if (player === 'Robot') {
-        playerDiv.setAttribute("id", "question-box-robot");
-    }
-    console.log(player);
-    console.log(playerDiv);
-}
-
-/*
-function changeDiv () {
-    let playerPicture = document.getElementById('player-picture');
-    if (player === 'User') {
-        playerPicture.style.background = 'url(.//images/player-user.png)';
-    } else if (player === 'Robot') {
-        playerPicture.style.background = 'url(.//images/player-robot.png)';
-    }
-    console.log(player);
-    console.log(playerPicture);
-    console.log(playerPicture.style.background);
-}
-
-/*
-    if (player === 'User') {
-        document.getElementById('question-box-robot').setAttribute('id', 'question-box-user');
-        let playerPicture = document.getElementById('player-picture');
-        playerPicture.style.background = 'url(.//images/player-user.png) center';
-        console.log('Picture changed to user.');
-    } else if (player === 'Robot') {
-        document.getElementById('question-box-user').setAttribute('id', 'question-box-user');
-        let playerPicture = document.getElementById('player-picture');
-        playerPicture.style.background = 'url(.//images/player-robot.png) center';
-        console.log('Picture changed to robot.');
+        playerImage.style.background = 'url(.//assets/images/player-robot.png)';
+        playerImage.style.backgroundPosition = 'center';
+        playerImage.style.backgroundSize = 'cover';
     } else {
-        console.log('No change.'); 
+        playerImage.style.background = 'red';
     }
 }
-*/
 
 function displayUserQuestion () {
     let questionDisplay = document.getElementById('question');

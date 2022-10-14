@@ -49,17 +49,7 @@ body {
     align-items: center;
 }
 
-#question-box-id {
-    background-color: rgb(160, 160, 160);
-    height: 25rem;
-    width: 30rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#question-box-robot {
+#question-box{
     background-color: rgb(160, 160, 160);
     height: 25rem;
     width: 30rem;
@@ -70,7 +60,8 @@ body {
 }
 
 #player-picture {
-    background: url(.//images/player-robot.png) center;
+    background: url(.//images/logo-robot.png);
+    background-position: center;
     background-size: cover;
     height: 10rem;
     width: 10rem;
@@ -127,15 +118,9 @@ body {
         width: 55rem;
     }
 
-    #question-box-id {
+    #question-box {
         width: 55rem;
-        /* Flip the player picture and question HERE */
         flex-direction: row;
-    }
-
-    #question-box-robot {
-        width: 55rem;
-        flex-direction: row-reverse;
     }
 
     #player-picture {
@@ -164,12 +149,7 @@ body {
         width: 75rem;
     }
 
-    #question-box-id {
-        width: 75rem;
-        font-size: 2.5rem;
-    }
-
-    #question-box-robot {
+    #question-box {
         width: 75rem;
         font-size: 2.5rem;
     }
