@@ -65,15 +65,54 @@ function changeDiv() {
 }
 
 // Displays the question in the question-box div
-function displayUserQuestion () {
+function displayUserQuestion() {
     let questionDisplay = document.getElementById('question');
     questionDisplay.innerHTML = (questions.results[questionNumber].question);
+}
+
+function displayAnswers() {
+    let correctPosition = Math.floor(Math.random() * 4) + 1; //Calculate which position to place the correct answer.
+    let incorrectPosition = 0;
+    let answerOne = document.getElementById('answer-one');
+    let answerTwo = document.getElementById('answer-two');
+    let answerThree = document.getElementById('answer-three');
+    let answerFour = document.getElementById('answer-four');
+    console.log(correctPosition);
+    // 1
+    if (correctPosition === 1) {
+        answerOne.innerHTML = (questions.results[questionNumber].correct_answer);
+    } else {
+        answerOne.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]);
+        incorrectPosition++;
+    }
+    // 2
+    if (correctPosition === 2) {
+        answerTwo.innerHTML = (questions.results[questionNumber].correct_answer);
+    } else {
+        answerTwo.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]);
+        incorrectPosition++;
+    }
+    // 3
+    if (correctPosition === 3) {
+        answerThree.innerHTML = (questions.results[questionNumber].correct_answer);
+    } else {
+        answerThree.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]);
+        incorrectPosition++;
+    }
+    // 4
+    if (correctPosition === 4) {
+        answerFour.innerHTML = (questions.results[questionNumber].correct_answer);
+    } else {
+        answerFour.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]);
+        incorrectPosition++;
+    }
 }
 
 // Starts gameplay after the questions have been retrieved.
 function playTheGame() {
     calculateWhoIsAnswering();
     displayUserQuestion();
+    displayAnswers();
     changeDiv(); // Think about if this should be here or nested inside another function. 
     console.log('You did it you magnificent bastard.'); // Logs a motivational message to keep me from crying.
 }
