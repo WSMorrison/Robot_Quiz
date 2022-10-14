@@ -15,7 +15,7 @@ async function goGetApi() {
     console.log('Questions have been retrieved successfully.'); // Tells me that this function is operating.
     console.log(questions.results[0].question); // Logs first question to check against iteration.
     console.log(questions.results[questionNumber].question); // These five lines give me reference for building the game later.
-    console.log(questions.results[questionNumber].correct_answer);
+    console.log(questions.results[questionNumber].correct_answer + '  <-- Correct');
     console.log(questions.results[questionNumber].incorrect_answers[0]);
     console.log(questions.results[questionNumber].incorrect_answers[1]);
     console.log(questions.results[questionNumber].incorrect_answers[2]);
