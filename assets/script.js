@@ -6,6 +6,7 @@ let questionNumber = 0; // Set for start, currently also used for diagnostics.
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
 let questions;
 let correctPosition;
+let answerSelection;
 let userScore = 0; // Set user score for start.
 let robotScore = 0; // Set robot score for start.
 let userScoreDisplay = document.getElementById('user-score');
@@ -177,6 +178,7 @@ function answerCheck() {
     }
     userScoreDisplay.innerHTML = (userScore);
     questionNumber++;
+    console.log(questionNumber);
     robotTurn();
 }
 
@@ -194,12 +196,16 @@ function playTheGame() {
 }
 
 function userTurn() {
+    console.log('userTurn has been called.');
+    console.log('It is the ' + player + "'s turn.");
     changeDiv();
     displayQuestion();
     displayAnswers();
 }
 
 function robotTurn() {
+    console.log('robotTurn has been called.');
+    console.log('It is ' + player + "'s turn.");
     changeDiv();
     displayQuestion();
     displayAnswers();
