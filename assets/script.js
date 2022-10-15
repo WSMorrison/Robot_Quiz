@@ -2,7 +2,7 @@ console.log ('JavaScript file has been called sucessfully.');
 
 // Global variables.
 
-let questionNumber = 0; // Set for start, currently also used for diagnostics.
+let questionNumber = 1; // Set for start, currently also used for diagnostics.
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
 let questions;
 
