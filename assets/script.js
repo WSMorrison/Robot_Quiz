@@ -5,6 +5,7 @@ console.log ('JavaScript file has been called sucessfully.');
 let questionNumber = 1; // Set for start, currently also used for diagnostics.
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
 let questions;
+let correctPosition;
 
 // Global functions.
 
@@ -72,7 +73,7 @@ function displayUserQuestion() {
 
 // Calculate a random position for the correct answer, and display the correct answer in the correct position among incorrect answers in the other positions.
 function displayAnswers() {
-    let correctPosition = Math.floor(Math.random() * 4) + 1; // Calculate which position to place the correct answer.
+    correctPosition = Math.floor(Math.random() * 4) + 1; // Calculate which position to place the correct answer.
     let incorrectPosition = 0; // Set incorrect position for incrementing.
     let answerOne = document.getElementById('answer-one');
     let answerTwo = document.getElementById('answer-two');
@@ -109,6 +110,7 @@ function displayAnswers() {
     }
 }
 
+// User answer selection
 function answerOneSelect() {
     console.log('Button one has been clicked.'); // Diagnostic
     buttonOne.style.backgroundColor = 'rgb(180, 180, 180)';
@@ -154,6 +156,21 @@ let buttonThree = document.getElementById('answer-three');
 buttonThree.addEventListener('click', answerThreeSelect);
 let buttonFour = document.getElementById('answer-four');
 buttonFour.addEventListener('click', answerFourSelect);
+
+// User answer submission
+
+function answerCheck() {
+    console.log(answerSelection); // Diagnostic
+    console.log(correctPosition); // Diagnostic
+    if (correctPosition === answerSelection) {
+        console.log('Answer correct!');
+    } else {
+        console.log('Answer incorrect!');
+    }
+}
+
+let buttonCheck = document.getElementById('button-check');
+buttonCheck.addEventListener('click', answerCheck);
 
 // Starts gameplay after the questions have been retrieved.
 function playTheGame() {
