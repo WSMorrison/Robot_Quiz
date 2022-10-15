@@ -111,13 +111,49 @@ function displayAnswers() {
 
 function answerOneSelect() {
     console.log('Button one has been clicked.'); // Diagnostic
-    buttonOne.style.backgroundColor = 'red';
+    buttonOne.style.backgroundColor = 'rgb(180, 180, 180)';
+    buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
     answerSelection = 1;
+    console.log(answerSelection) // Diagnostic
+}
+function answerTwoSelect() {
+    console.log('Button two has been clicked.'); // Diagnostic
+    buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonTwo.style.backgroundColor = 'rgb(180, 180, 180)';
+    buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
+    answerSelection = 2;
+    console.log(answerSelection) // Diagnostic
+}
+function answerThreeSelect() {
+    console.log('Button three has been clicked.'); // Diagnostic
+    buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonThree.style.backgroundColor = 'rgb(180, 180, 180)';
+    buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
+    answerSelection = 3;
+    console.log(answerSelection) // Diagnostic
+}
+function answerFourSelect() {
+    console.log('Button four has been clicked.'); // Diagnostic
+    buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonFour.style.backgroundColor = 'rgb(180, 180, 180)';
+    answerSelection = 4;
     console.log(answerSelection) // Diagnostic
 }
 
 let buttonOne = document.getElementById('answer-one');
 buttonOne.addEventListener('click', answerOneSelect);
+let buttonTwo = document.getElementById('answer-two');
+buttonTwo.addEventListener('click', answerTwoSelect);
+let buttonThree = document.getElementById('answer-three');
+buttonThree.addEventListener('click', answerThreeSelect);
+let buttonFour = document.getElementById('answer-four');
+buttonFour.addEventListener('click', answerFourSelect);
 
 // Starts gameplay after the questions have been retrieved.
 function playTheGame() {
