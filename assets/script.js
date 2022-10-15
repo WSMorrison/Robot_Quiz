@@ -2,10 +2,12 @@ console.log ('JavaScript file has been called sucessfully.');
 
 // Global variables.
 
-let questionNumber = 1; // Set for start, currently also used for diagnostics.
+let questionNumber = 0; // Set for start, currently also used for diagnostics.
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
 let questions;
 let correctPosition;
+let userScore = 0; // Set user score for start.
+let robotScore = 0; // Set robot score for start.
 
 // Global functions.
 
@@ -118,7 +120,7 @@ function answerOneSelect() {
     buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
     answerSelection = 1;
-    console.log(answerSelection) // Diagnostic
+    console.log('Selected ' + answerSelection) // Diagnostic
 }
 function answerTwoSelect() {
     console.log('Button two has been clicked.'); // Diagnostic
@@ -127,7 +129,7 @@ function answerTwoSelect() {
     buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
     answerSelection = 2;
-    console.log(answerSelection) // Diagnostic
+    console.log('Selected ' + answerSelection) // Diagnostic
 }
 function answerThreeSelect() {
     console.log('Button three has been clicked.'); // Diagnostic
@@ -136,7 +138,7 @@ function answerThreeSelect() {
     buttonThree.style.backgroundColor = 'rgb(180, 180, 180)';
     buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
     answerSelection = 3;
-    console.log(answerSelection) // Diagnostic
+    console.log('Selected ' + answerSelection) // Diagnostic
 }
 function answerFourSelect() {
     console.log('Button four has been clicked.'); // Diagnostic
@@ -145,7 +147,7 @@ function answerFourSelect() {
     buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonFour.style.backgroundColor = 'rgb(180, 180, 180)';
     answerSelection = 4;
-    console.log(answerSelection) // Diagnostic
+    console.log('Selected ' + answerSelection) // Diagnostic
 }
 
 let buttonOne = document.getElementById('answer-one');
@@ -160,12 +162,16 @@ buttonFour.addEventListener('click', answerFourSelect);
 // User answer submission
 
 function answerCheck() {
-    console.log(answerSelection); // Diagnostic
-    console.log(correctPosition); // Diagnostic
+    console.log('User score was ' + userScore); // Diagnostic
+    console.log('Selected answer is ' + answerSelection); // Diagnostic
+    console.log('Correct answer is ' + correctPosition); // Diagnostic
     if (correctPosition === answerSelection) {
-        console.log('Answer correct!');
+        console.log('Answer correct!'); // Diagnostic
+        userScore++; // Increment user score for correct answer.
+        console.log('User score is now ' + userScore); //Diagnostic
     } else {
-        console.log('Answer incorrect!');
+        console.log('Answer incorrect!'); // Diagnostic
+        console.log('User score is now ' + userScore);
     }
 }
 
