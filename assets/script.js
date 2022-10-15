@@ -8,6 +8,8 @@ let questions;
 let correctPosition;
 let userScore = 0; // Set user score for start.
 let robotScore = 0; // Set robot score for start.
+let userScoreDisplay = document.getElementById('user-score');
+let robotScoreDisplay = document.getElementById('robot-score');
 
 // Global functions.
 
@@ -68,7 +70,7 @@ function changeDiv() {
 }
 
 // Displays the question in the question-box div.
-function displayUserQuestion() {
+function displayQuestion() {
     let questionDisplay = document.getElementById('question');
     questionDisplay.innerHTML = (questions.results[questionNumber].question);
 }
@@ -173,6 +175,9 @@ function answerCheck() {
         console.log('Answer incorrect!'); // Diagnostic
         console.log('User score is now ' + userScore);
     }
+    userScoreDisplay.innerHTML = (userScore);
+    questionNumber++;
+    robotTurn();
 }
 
 let buttonCheck = document.getElementById('button-check');
@@ -182,36 +187,31 @@ buttonCheck.addEventListener('click', answerCheck);
 function playTheGame() {
     let answerSelection = 0; // Logs answer selection before functions, diagnostic.
     calculateWhoIsAnswering();
-    displayUserQuestion();
+    userTurn();
+    userScoreDisplay.innerHTML = (userScore);
+    robotScoreDisplay.innerHTML = (robotScore);
+    console.log(answerSelection); // Diagnostic
+}
+
+function userTurn() {
+    changeDiv();
+    displayQuestion();
     displayAnswers();
-    changeDiv(); // Think about if this should be here or nested inside another function. 
-    console.log('You did it you magnificent bastard.'); // Logs a motivational message to keep me from crying.
-    console.log(answerSelection);
+}
+
+function robotTurn() {
+    changeDiv();
+    displayQuestion();
+    displayAnswers();
 }
 
 
 /*
 // User functions
-function retrieveUserAnswer () {
-
-}
-
-function userCheckAnswer () {
-
-}
 
 function displayCorrectAnswer () {
 
 }
-
-function calculateUserCorrect () {
-
-}
-
-function updateUserScore () {
-
-}
-
 
 // Robot functions
 function displayRobotQuestion () {
