@@ -85,9 +85,13 @@ body {
 }
 
 .answer {
-    background-color:rgb(150, 150, 150);
+    /*background-color:rgb(150, 150, 150);*/
     height: 4rem;
     width: 11rem;
+}
+
+#answer-one {
+    background-color: rgb(150, 150, 150);
 }
 
 #button-container {

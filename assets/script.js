@@ -109,13 +109,25 @@ function displayAnswers() {
     }
 }
 
+function answerOneSelect() {
+    console.log('Button one has been clicked.'); // Diagnostic
+    buttonOne.style.backgroundColor = 'red';
+    answerSelection = 1;
+    console.log(answerSelection) // Diagnostic
+}
+
+let buttonOne = document.getElementById('answer-one');
+buttonOne.addEventListener('click', answerOneSelect);
+
 // Starts gameplay after the questions have been retrieved.
 function playTheGame() {
+    let answerSelection = 0; // Logs answer selection before functions, diagnostic.
     calculateWhoIsAnswering();
     displayUserQuestion();
     displayAnswers();
     changeDiv(); // Think about if this should be here or nested inside another function. 
     console.log('You did it you magnificent bastard.'); // Logs a motivational message to keep me from crying.
+    console.log(answerSelection);
 }
 
 
