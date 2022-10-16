@@ -19,12 +19,12 @@ async function goGetApi() {
     let apiData = await fetch(apiUrl);
     questions = await apiData.json();
     console.log('Questions have been retrieved successfully.'); // Tells me that this function is operating.
-    console.log(questions.results[0].question); // Logs first question to check against iteration.
-    console.log(questions.results[questionNumber].question); // These five lines give me reference for building the game later.
-    console.log(questions.results[questionNumber].correct_answer + '  <-- Correct');
-    console.log(questions.results[questionNumber].incorrect_answers[0]);
-    console.log(questions.results[questionNumber].incorrect_answers[1]);
-    console.log(questions.results[questionNumber].incorrect_answers[2]);
+    //console.log(questions.results[0].question); // Logs first question to check against iteration.
+    //console.log(questions.results[questionNumber].question); // These five lines give me reference for building the game later.
+    //console.log(questions.results[questionNumber].correct_answer + '  <-- Correct');
+    //console.log(questions.results[questionNumber].incorrect_answers[0]);
+    //console.log(questions.results[questionNumber].incorrect_answers[1]);
+    //console.log(questions.results[questionNumber].incorrect_answers[2]);
 
     return questions;
 }
@@ -170,17 +170,23 @@ function answerCheck() {
     console.log('Correct answer is ' + correctPosition); // Diagnostic
     if (correctPosition === answerSelection) {
         console.log('Answer correct!'); // Diagnostic
-        userScore++; // Increment user score for correct answer.
+        if (player === 'User') {
+            userScore++;
+        } else if (player === 'Robot') {
+            robotScore++;
+        }
         console.log('User score is now ' + userScore); //Diagnostic
+        console.log('Robot score is now ' + robotScore); // Diagnostic
     } else {
         console.log('Answer incorrect!'); // Diagnostic
         console.log('User score is now ' + userScore);
     }
     userScoreDisplay.innerHTML = (userScore);
-    questionNumber++;
-    console.log(questionNumber);
-    calculateWhoIsAnswering();
-    console.log(player);
+    robotScoreDisplay.innerHTML = (robotScore);
+    questionNumber++; //Increment qustion number
+    console.log(questionNumber); // Diagnostic
+    calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
+    console.log(player); // Diagnostic
     if (player === 'User') {
         userTurn();
     } else if (player === 'Robot');
@@ -201,16 +207,16 @@ function playTheGame() {
 }
 
 function userTurn() {
-    console.log('userTurn has been called.');
-    console.log('It is the ' + player + "'s turn.");
+    console.log('1 UserTurn has been called.');
+    console.log('1 It is the ' + player + "'s turn.");
     changeDiv();
     displayQuestion();
     displayAnswers();
 }
 
 function robotTurn() {
-    console.log('robotTurn has been called.');
-    console.log('It is ' + player + "'s turn.");
+    console.log('2 RobotTurn has been called.');
+    console.log('2 It is ' + player + "'s turn.");
     changeDiv();
     displayQuestion();
     displayAnswers();
