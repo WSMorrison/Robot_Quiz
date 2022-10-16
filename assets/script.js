@@ -48,6 +48,17 @@ function changeDiv() {
     buttonDos.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonTres.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonAudi.style.backgroundColor = 'rgb(150, 150, 150)';
+    if (player === 'User') {
+        buttonUno.removeAttribute('disabled');
+        buttonDos.removeAttribute('disabled');
+        buttonTres.removeAttribute('disabled');
+        buttonAudi.removeAttribute('dsiabled');
+    } else if (player === 'Robot') {
+        buttonUno.setAttribute('disabled', 'disabled');
+        buttonDos.setAttribute('disabled', 'disabled');
+        buttonTres.setAttribute('disabled', 'disabled');
+        buttonAudi.setAttribute('disabled', 'disabled');
+    }
 
     let questionBox = document.getElementById('question-box');
     // Checks the window width before reorienting the div.
