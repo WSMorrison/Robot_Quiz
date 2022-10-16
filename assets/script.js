@@ -174,11 +174,7 @@ function answerCheck() {
     robotScoreDisplay.innerHTML = (robotScore);
     questionNumber++; //Increment qustion number
     winLoseOrTie();
-    calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
-    if (player === 'User') {
-        userTurn();
-    } else if (player === 'Robot');
-        robotTurn();
+    //winLoseOrTie it questionNumber < 10 came from here.
 }
 
 let buttonCheck = document.getElementById('button-check');
@@ -190,18 +186,30 @@ function winLoseOrTie() {
     console.log("It's question " + questionNumber + ' and the score is: User ' + userScore + ' Robot ' + robotScore);
     if (questionNumber === 10) {
         if (userScore == robotScore) {
-            console.log('This game is tied an will move to a bonus round.')
+            console.log('This game is tied and will move to a bonus round.')
+            calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
+            if (player === 'User') {
+                userTurn();
+            } else if (player === 'Robot');
+                robotTurn();
         } else if (userScore > robotScore) {
             console.log('User has won!');
         } else if (userScore < robotScore) {
             console.log('The robots have won and we have reached singularity.');
         }
+    } else if (questionNumber < 10) {
+        calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
+        if (player === 'User') {
+            userTurn();
+        } else if (player === 'Robot');
+            robotTurn();
+    } else if (questionNumber > 10) {
+        console.log('How did you get here?');
     }
 }
 
 // Starts gameplay after the questions have been retrieved.
 function playTheGame() {
-    let answerSelection = 0; // Logs answer selection before functions, diagnostic.
     calculateWhoIsAnswering();
     userTurn();
     userScoreDisplay.innerHTML = (userScore);
