@@ -23,6 +23,7 @@ async function goGetApi() {
 }
 
 goGetApi().then(
+
     function() {playTheGame()}
 );
 
@@ -80,6 +81,7 @@ function displayQuestion() {
 
 // Calculate a random position for the correct answer, and display the correct answer in the correct position among incorrect answers in the other positions.
 function displayAnswers() {
+    answerSelection = 0; // Set answer selection to 0 so if no answer is selected I can trigger an alert or something.
     correctPosition = Math.floor(Math.random() * 4) + 1; // Calculate which position to place the correct answer.
     let incorrectPosition = 0; // Set incorrect position for incrementing.
     let answerOne = document.getElementById('answer-one');
@@ -117,34 +119,34 @@ function displayAnswers() {
     }
 }
 
-// User answer selection
+// User answer selection, but only if it is user's turn
 function answerOneSelect() {
-    buttonOne.style.backgroundColor = 'rgb(180, 180, 180)';
-    buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
-    answerSelection = 1;
+        buttonOne.style.backgroundColor = 'rgb(180, 180, 180)';
+        buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
+        answerSelection = 1;
 }
 function answerTwoSelect() {
-    buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonTwo.style.backgroundColor = 'rgb(180, 180, 180)';
-    buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
-    answerSelection = 2;
+        buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonTwo.style.backgroundColor = 'rgb(180, 180, 180)';
+        buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
+        answerSelection = 2;
 }
 function answerThreeSelect() {
-    buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonThree.style.backgroundColor = 'rgb(180, 180, 180)';
-    buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
-    answerSelection = 3;
+        buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonThree.style.backgroundColor = 'rgb(180, 180, 180)';
+        buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
+        answerSelection = 3;
 }
 function answerFourSelect() {
-    buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonFour.style.backgroundColor = 'rgb(180, 180, 180)';
-    answerSelection = 4;
+        buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonFour.style.backgroundColor = 'rgb(180, 180, 180)';
+        answerSelection = 4;
 }
 
 let buttonOne = document.getElementById('answer-one');
@@ -156,6 +158,12 @@ buttonThree.addEventListener('click', answerThreeSelect);
 let buttonFour = document.getElementById('answer-four');
 buttonFour.addEventListener('click', answerFourSelect);
 
+// Generate robot answer
+
+function robotAnswer() {
+    answerSelection = Math.floor(Math.random() * 4) + 1; // Picks a number 1-4 and assigns it as robot answer.
+}
+
 // User answer submission
 
 function answerCheck() {
@@ -165,10 +173,7 @@ function answerCheck() {
             userScore++;
         } else if (player === 'Robot') {
             robotScore++;
-        }
-        //console.log('Where is my pop?');
-        //let correctPopUp = document.getElementById('correct-popup');
-        //correctPopUp.classList.toggle('popup');    
+        }   
     } else {
         console.log('Answer incorrect!'); // Diagnostic
         console.log('User score is now ' + userScore);
@@ -179,8 +184,16 @@ function answerCheck() {
     winLoseOrTie();
 }
 
+function isThereAnAnswer() {
+    if (answerSelection === 0) {
+        alert('Select an answer, our fate depends on it.');
+    } else {
+        answerCheck();
+    }
+}
+
 let buttonCheck = document.getElementById('button-check');
-buttonCheck.addEventListener('click', answerCheck);
+buttonCheck.addEventListener('click', isThereAnAnswer);
 
 // Calculates if there is a winner, or need for a tie breaker question
 function winLoseOrTie() {
