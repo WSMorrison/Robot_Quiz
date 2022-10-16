@@ -52,7 +52,7 @@ function changeDiv() {
         buttonUno.removeAttribute('disabled');
         buttonDos.removeAttribute('disabled');
         buttonTres.removeAttribute('disabled');
-        buttonAudi.removeAttribute('dsiabled');
+        buttonAudi.removeAttribute('disabled');
     } else if (player === 'Robot') {
         buttonUno.setAttribute('disabled', 'disabled');
         buttonDos.setAttribute('disabled', 'disabled');
@@ -196,9 +196,13 @@ function answerCheck() {
 }
 
 function isThereAnAnswer() {
-    if (answerSelection === 0) {
-        alert('Select an answer, our fate depends on it.');
-    } else {
+    if (player === 'User') {
+        if (answerSelection === 0) {
+            alert('Select an answer, our fate depends on it.');
+        } else {
+            answerCheck();
+        }
+    } else if (player === 'Robot') {
         answerCheck();
     }
 }
