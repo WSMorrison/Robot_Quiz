@@ -194,8 +194,24 @@ function winLoseOrTie() {
                 robotTurn();
         } else if (userScore > robotScore) {
             console.log('User has won!');
+            player = 'User';
+            changeDiv();
+            let userWinner = document.getElementById('player-picture');
+            userWinner.style.background = 'url(.//assets/images/logo-user.png)'; // NEED NEW ART
+            userWinner.style.backgroundPosition = 'center';
+            userWinner.style.backgroundSize = 'cover';
+            let questionDisplay = document.getElementById('question');
+            questionDisplay.innerHTML = ('Congratulations! You have won and saved us from the malevolent robot overlords!');
         } else if (userScore < robotScore) {
             console.log('The robots have won and we have reached singularity.');
+            player = 'Robot'
+            changeDiv();
+            let robotWinner = document.getElementById('player-picture');
+            robotWinner.style.background = 'url(.//assets/images/logo-robot.png)'; // NEED NEW ART
+            robotWinner.style.backgroundPosition = 'center';
+            robotWinner.style.backgroundSize = 'cover';
+            let questionDisplay = document.getElementById('question');
+            questionDisplay.innerHTML = ('The robot has won! You will now sit inside its refrigerator and cool the robofood');
         }
     } else if (questionNumber < 10) {
         calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
