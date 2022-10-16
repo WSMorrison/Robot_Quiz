@@ -166,6 +166,9 @@ function answerCheck() {
         } else if (player === 'Robot') {
             robotScore++;
         }
+        //console.log('Where is my pop?');
+        //let correctPopUp = document.getElementById('correct-popup');
+        //correctPopUp.classList.toggle('popup');    
     } else {
         console.log('Answer incorrect!'); // Diagnostic
         console.log('User score is now ' + userScore);
@@ -174,18 +177,16 @@ function answerCheck() {
     robotScoreDisplay.innerHTML = (robotScore);
     questionNumber++; //Increment qustion number
     winLoseOrTie();
-    //winLoseOrTie it questionNumber < 10 came from here.
 }
 
 let buttonCheck = document.getElementById('button-check');
 buttonCheck.addEventListener('click', answerCheck);
 
 // Calculates if there is a winner, or need for a tie breaker question
-
 function winLoseOrTie() {
     console.log("It's question " + questionNumber + ' and the score is: User ' + userScore + ' Robot ' + robotScore);
-    if (questionNumber === 10) {
-        if (userScore == robotScore) {
+    if (questionNumber === 10) { // If each player has gotten 5 questions... 
+        if (userScore == robotScore) { // And the sscores are the same, it moves on to the last question.
             console.log('This game is tied and will move to a bonus round.')
             calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
             if (player === 'User') {
@@ -193,25 +194,9 @@ function winLoseOrTie() {
             } else if (player === 'Robot');
                 robotTurn();
         } else if (userScore > robotScore) {
-            console.log('User has won!');
-            player = 'User';
-            changeDiv();
-            let userWinner = document.getElementById('player-picture');
-            userWinner.style.background = 'url(.//assets/images/logo-user.png)'; // NEED NEW ART
-            userWinner.style.backgroundPosition = 'center';
-            userWinner.style.backgroundSize = 'cover';
-            let questionDisplay = document.getElementById('question');
-            questionDisplay.innerHTML = ('Congratulations! You have won and saved us from the malevolent robot overlords!');
+            userWins();
         } else if (userScore < robotScore) {
-            console.log('The robots have won and we have reached singularity.');
-            player = 'Robot'
-            changeDiv();
-            let robotWinner = document.getElementById('player-picture');
-            robotWinner.style.background = 'url(.//assets/images/logo-robot.png)'; // NEED NEW ART
-            robotWinner.style.backgroundPosition = 'center';
-            robotWinner.style.backgroundSize = 'cover';
-            let questionDisplay = document.getElementById('question');
-            questionDisplay.innerHTML = ('The robot has won! You will now sit inside its refrigerator and cool the robofood');
+            robotWins();
         }
     } else if (questionNumber < 10) {
         calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
@@ -221,7 +206,36 @@ function winLoseOrTie() {
             robotTurn();
     } else if (questionNumber > 10) {
         console.log('How did you get here?');
+        if (userScore > robotScore) {
+            userWins();
+        } else if (userScore >= robotScore) {
+            robotWins();
+        }
     }
+}
+
+function userWins() {
+    console.log('User has won!');
+    player = 'User';
+    changeDiv();
+    let userWinner = document.getElementById('player-picture');
+    userWinner.style.background = 'url(.//assets/images/logo-user.png)'; // NEED NEW ART
+    userWinner.style.backgroundPosition = 'center';
+    userWinner.style.backgroundSize = 'cover';
+    let questionDisplay = document.getElementById('question');
+    questionDisplay.innerHTML = ('Congratulations! You have won and saved us from the malevolent robot overlords!');
+}
+
+function robotWins() {
+    console.log('The robots have won and we have reached singularity.');
+    player = 'Robot'
+    changeDiv();
+    let robotWinner = document.getElementById('player-picture');
+    robotWinner.style.background = 'url(.//assets/images/logo-robot.png)'; // NEED NEW ART
+    robotWinner.style.backgroundPosition = 'center';
+    robotWinner.style.backgroundSize = 'cover';
+    let questionDisplay = document.getElementById('question');
+    questionDisplay.innerHTML = ('The robot has won! You will now sit inside its refrigerator and cool the robofood');
 }
 
 // Starts gameplay after the questions have been retrieved.

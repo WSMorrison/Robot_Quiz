@@ -103,6 +103,19 @@ body {
     text-align: center;
 }
 
+#correct-popup {
+    visibility: hidden;
+    background-color:rgb(180, 180, 180);
+    height: 5rem;
+    width: 5rem;
+    position: absolute;
+    z-index: 100;
+}
+
+#correct-popup .popup {
+    visibility: visible;
+}
+
 @media only screen and (min-width: 576px) {
     
     #header-box {
