@@ -179,7 +179,12 @@ function answerCheck() {
     userScoreDisplay.innerHTML = (userScore);
     questionNumber++;
     console.log(questionNumber);
-    robotTurn();
+    calculateWhoIsAnswering();
+    console.log(player);
+    if (player === 'User') {
+        userTurn();
+    } else if (player === 'Robot');
+        robotTurn();
 }
 
 let buttonCheck = document.getElementById('button-check');
