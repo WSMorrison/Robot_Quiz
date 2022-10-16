@@ -19,13 +19,6 @@ async function goGetApi() {
     let apiData = await fetch(apiUrl);
     questions = await apiData.json();
     console.log('Questions have been retrieved successfully.'); // Tells me that this function is operating.
-    //console.log(questions.results[0].question); // Logs first question to check against iteration.
-    //console.log(questions.results[questionNumber].question); // These five lines give me reference for building the game later.
-    //console.log(questions.results[questionNumber].correct_answer + '  <-- Correct');
-    //console.log(questions.results[questionNumber].incorrect_answers[0]);
-    //console.log(questions.results[questionNumber].incorrect_answers[1]);
-    //console.log(questions.results[questionNumber].incorrect_answers[2]);
-
     return questions;
 }
 
@@ -46,6 +39,15 @@ function calculateWhoIsAnswering() {
 
 // Changes the orientation of the question-box div and the image in the player-image div based on whose turn it is.
 function changeDiv() {
+    let buttonUno = document.getElementById('answer-one');
+    let buttonDos = document.getElementById('answer-two');
+    let buttonTres = document.getElementById('answer-three');
+    let buttonAudi = document.getElementById('answer-four');
+    buttonUno.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonDos.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonTres.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonAudi.style.backgroundColor = 'rgb(150, 150, 150)';
+
     let questionBox = document.getElementById('question-box');
     // Checks the window width before reorienting the div.
     if (window.matchMedia('(min-width: 576px)').matches) {
@@ -117,40 +119,32 @@ function displayAnswers() {
 
 // User answer selection
 function answerOneSelect() {
-    console.log('Button one has been clicked.'); // Diagnostic
     buttonOne.style.backgroundColor = 'rgb(180, 180, 180)';
     buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
     answerSelection = 1;
-    console.log('Selected ' + answerSelection) // Diagnostic
 }
 function answerTwoSelect() {
-    console.log('Button two has been clicked.'); // Diagnostic
     buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonTwo.style.backgroundColor = 'rgb(180, 180, 180)';
     buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
     answerSelection = 2;
-    console.log('Selected ' + answerSelection) // Diagnostic
 }
 function answerThreeSelect() {
-    console.log('Button three has been clicked.'); // Diagnostic
     buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonThree.style.backgroundColor = 'rgb(180, 180, 180)';
     buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
     answerSelection = 3;
-    console.log('Selected ' + answerSelection) // Diagnostic
 }
 function answerFourSelect() {
-    console.log('Button four has been clicked.'); // Diagnostic
     buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
     buttonFour.style.backgroundColor = 'rgb(180, 180, 180)';
     answerSelection = 4;
-    console.log('Selected ' + answerSelection) // Diagnostic
 }
 
 let buttonOne = document.getElementById('answer-one');
@@ -165,9 +159,6 @@ buttonFour.addEventListener('click', answerFourSelect);
 // User answer submission
 
 function answerCheck() {
-    console.log('User score was ' + userScore); // Diagnostic
-    console.log('Selected answer is ' + answerSelection); // Diagnostic
-    console.log('Correct answer is ' + correctPosition); // Diagnostic
     if (correctPosition === answerSelection) {
         console.log('Answer correct!'); // Diagnostic
         if (player === 'User') {
@@ -175,8 +166,6 @@ function answerCheck() {
         } else if (player === 'Robot') {
             robotScore++;
         }
-        console.log('User score is now ' + userScore); //Diagnostic
-        console.log('Robot score is now ' + robotScore); // Diagnostic
     } else {
         console.log('Answer incorrect!'); // Diagnostic
         console.log('User score is now ' + userScore);
@@ -184,9 +173,8 @@ function answerCheck() {
     userScoreDisplay.innerHTML = (userScore);
     robotScoreDisplay.innerHTML = (robotScore);
     questionNumber++; //Increment qustion number
-    console.log(questionNumber); // Diagnostic
+    winLoseOrTie();
     calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
-    console.log(player); // Diagnostic
     if (player === 'User') {
         userTurn();
     } else if (player === 'Robot');
@@ -196,6 +184,21 @@ function answerCheck() {
 let buttonCheck = document.getElementById('button-check');
 buttonCheck.addEventListener('click', answerCheck);
 
+// Calculates if there is a winner, or need for a tie breaker question
+
+function winLoseOrTie() {
+    console.log("It's question " + questionNumber + ' and the score is: User ' + userScore + ' Robot ' + robotScore);
+    if (questionNumber === 10) {
+        if (userScore == robotScore) {
+            console.log('This game is tied an will move to a bonus round.')
+        } else if (userScore > robotScore) {
+            console.log('User has won!');
+        } else if (userScore < robotScore) {
+            console.log('The robots have won and we have reached singularity.');
+        }
+    }
+}
+
 // Starts gameplay after the questions have been retrieved.
 function playTheGame() {
     let answerSelection = 0; // Logs answer selection before functions, diagnostic.
@@ -203,20 +206,15 @@ function playTheGame() {
     userTurn();
     userScoreDisplay.innerHTML = (userScore);
     robotScoreDisplay.innerHTML = (robotScore);
-    console.log(answerSelection); // Diagnostic
 }
 
 function userTurn() {
-    console.log('1 UserTurn has been called.');
-    console.log('1 It is the ' + player + "'s turn.");
     changeDiv();
     displayQuestion();
     displayAnswers();
 }
 
 function robotTurn() {
-    console.log('2 RobotTurn has been called.');
-    console.log('2 It is ' + player + "'s turn.");
     changeDiv();
     displayQuestion();
     displayAnswers();
@@ -226,12 +224,7 @@ function robotTurn() {
 /*
 // User functions
 
-function displayCorrectAnswer () {
-
-}
-
-// Robot functions
-function displayRobotQuestion () {
+function displayTheCorrectAnswer () {
 
 }
 
@@ -248,10 +241,6 @@ function calculateRobotAnswer () {
 }
 
 function displayCorrectAnswer () {
-
-}*/ /*
-
-function updateRobotScore () {
 
 }
 
