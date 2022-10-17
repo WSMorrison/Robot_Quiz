@@ -103,6 +103,11 @@ body {
     text-align: center;
 }
 
+.socials-links {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
 @media only screen and (min-width: 576px) {
     
     #header-box {
@@ -141,7 +146,7 @@ body {
     }    
 
     #question-container {
-        height: 60rem;
+        height: 30rem;
         width: 75rem;
     }
 
