@@ -169,10 +169,15 @@ buttonThree.addEventListener('click', answerThreeSelect);
 let buttonFour = document.getElementById('answer-four');
 buttonFour.addEventListener('click', answerFourSelect);
 
-// Generate robot answer
+// Generate robot answer. By changing (robotThinking < XX) developer can change how often the robot gets answers right. By setting wrong answerSelection to 5, the robot cannot get it right.
 
 function robotAnswer() {
-    answerSelection = Math.floor(Math.random() * 4) + 1; // Picks a number 1-4 and assigns it as robot answer.
+    let robotThinking = Math.floor(Math.random() * 100);
+    if (robotThinking < 80) { 
+        answerSelection = correctPosition;
+    } else {
+        answerSelection = 5
+    }
 }
 
 // User answer submission
