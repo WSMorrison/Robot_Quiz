@@ -128,6 +128,9 @@ function displayAnswers() {
         answerFour.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]);
         incorrectPosition++;
     }
+    if (player === 'Robot') {
+        robotWillAnswerIn();
+    }
 }
 
 // User answer selection, but only if it is user's turn
@@ -199,6 +202,26 @@ function answerCheck() {
     questionNumber++; //Increment qustion number
     winLoseOrTie();
 }
+
+// Hold game until robot is "ready" to answer.
+function robotWillAnswerIn() {
+    let countDown = 5;
+    let robotCountdown = setInterval(function(){
+    if(countDown <= 0){
+        clearInterval(robotCountdown);
+        let submitButton = document.getElementById('button-check');
+        submitButton.removeAttribute('disabled');
+        document.getElementById("prompt").innerHTML = ('Ready!');
+    } else {
+        let submitButton = document.getElementById('button-check');
+        submitButton.setAttribute('disabled', 'disabled');
+        document.getElementById("prompt").innerHTML = ('Robot will decide in ' + countDown);
+    }
+    countDown -= 1;
+    }, 1000);
+}
+
+// Check that an answer has been selected before letting user submit
 
 function isThereAnAnswer() {
     if (player === 'User') {
@@ -295,38 +318,12 @@ function robotTurn() {
 
 
 /*
-// User functions
 
-function displayTheCorrectAnswer () {
+indicate chosen answer, correct answer.
 
-}
+change question to 'round' and advance it every 2 turns, and to tiebreaker at the end
 
-function robotHasToThinkAboutIt () {
-
-}
-
-function calculateRobotAnswer () {
-
-}
-
-/* function userCheckAnswer () {
-
-}
-
-function displayCorrectAnswer () {
-
-}
-
-function calculateWinner () {
-
-}
-
-function calculateIfTieBreaker () {
-
-}
-
-function showWinner () {
-    
-}
+cover div!
+accept and verify user name, and display it (come up with robot names, that it will choose at random, and display it)
 
 */
