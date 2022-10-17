@@ -2,7 +2,7 @@ console.log ('JavaScript file has been called sucessfully.');
 
 // Global variables.
 
-let questionNumber = 0; // Set for start, currently also used for diagnostics.
+let questionNumber = 0; // Set for start.
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
 let questions;
 let correctPosition;
@@ -23,6 +23,7 @@ async function goGetApi() {
     return questions;
 }
 
+// Calls the function to go get the questions, and starts the game when the questions are loaded.
 goGetApi().then(
 
     function() {playTheGame()}
@@ -36,13 +37,18 @@ function calculateWhoIsAnswering() {
     } else {
         player = 'User';
     }
-    halfRound++;
+    halfRound++; // Passed to whatRoundIsIt().
     console.log('It is the ' + player + "'s turn.");
 }
 
+// Converts the question number to round number, for style purposes.
 function whatRoundIsIt() {
-    let itIsThisRound = Math.floor(halfRound / 2);
-    document.getElementById('round-display').innerHTML = ('Round ' + itIsThisRound);
+    if (halfRound < 12) {
+        let itIsThisRound = Math.floor(halfRound / 2);
+        document.getElementById('round-display').innerHTML = ('Round ' + itIsThisRound);
+    } else {
+        document.getElementById('round-display').innerHTML = ('Tie Breaker');
+    }
 }
 
 // Changes the orientation of the question-box div and the image in the player-image div based on whose turn it is.
@@ -66,9 +72,8 @@ function changeDiv() {
         buttonTres.setAttribute('disabled', 'disabled');
         buttonAudi.setAttribute('disabled', 'disabled');
     }
-
+    // This section checks the window width before reorienting the div.
     let questionBox = document.getElementById('question-box');
-    // Checks the window width before reorienting the div.
     if (window.matchMedia('(min-width: 576px)').matches) {
         if (player === 'User') {
             questionBox.style.flexDirection = 'row';
@@ -76,7 +81,7 @@ function changeDiv() {
             questionBox.style.flexDirection = 'row-reverse';
         }
     }
-    // Changes the player image.
+    //This section changes the player image.
     let playerImage = document.getElementById('player-picture');
     if (player === 'User') {
         playerImage.style.background = 'url(.//assets/images/player-user.png)';
@@ -106,7 +111,6 @@ function displayAnswers() {
     let answerTwo = document.getElementById('answer-two');
     let answerThree = document.getElementById('answer-three');
     let answerFour = document.getElementById('answer-four');
-    console.log(correctPosition);
     // Handle position 1.
     if (correctPosition === 1) { // Check if position is "correct" position.
         answerOne.innerHTML = (questions.results[questionNumber].correct_answer); // Populate with correct answer if so.
@@ -114,33 +118,34 @@ function displayAnswers() {
         answerOne.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]); // Populate with incorrect answer if not.
         incorrectPosition++; // Increment incorrect answer so it isn't inadvertantly reused.
     }
-    // 2
+    // Handle position 2.
     if (correctPosition === 2) {
         answerTwo.innerHTML = (questions.results[questionNumber].correct_answer);
     } else {
         answerTwo.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]);
         incorrectPosition++;
     }
-    // 3
+    // Handle position 3.
     if (correctPosition === 3) {
         answerThree.innerHTML = (questions.results[questionNumber].correct_answer);
     } else {
         answerThree.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]);
         incorrectPosition++;
     }
-    // 4
+    // Handle position 4.
     if (correctPosition === 4) {
         answerFour.innerHTML = (questions.results[questionNumber].correct_answer);
     } else {
         answerFour.innerHTML = (questions.results[questionNumber].incorrect_answers[incorrectPosition]);
         incorrectPosition++;
     }
+    // Calls function to handle robot time countdown.
     if (player === 'Robot') {
         robotWillAnswerIn();
     }
 }
 
-// User answer selection, but only if it is user's turn
+// User answer selection, but only if it is user's turn.
 function answerOneSelect() {
         buttonOne.style.backgroundColor = 'rgb(180, 180, 180)';
         buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
@@ -179,34 +184,29 @@ buttonThree.addEventListener('click', answerThreeSelect);
 let buttonFour = document.getElementById('answer-four');
 buttonFour.addEventListener('click', answerFourSelect);
 
-// Generate robot answer. By changing (robotThinking < XX) developer can change how often the robot gets answers right. By setting wrong answerSelection to 5, the robot cannot get it right.
-
+// Generate robot answer. By changing (robotThinking < XX) developer can change how often the robot gets answers right. 
+// By setting answerSelection to 5, the robot cannot get it right, preventing the robot from accidentally getting it right and changing the odds.
 function robotAnswer() {
     let robotThinking = Math.floor(Math.random() * 100);
-    if (robotThinking < 80) { 
+    if (robotThinking < 1) { 
         answerSelection = correctPosition;
     } else {
         answerSelection = 5
     }
 }
 
-// User answer submission
-
+// User answer submission.
 function answerCheck() {
     if (correctPosition === answerSelection) {
-        console.log('Answer correct!'); // Diagnostic
         if (player === 'User') {
             userScore++;
         } else if (player === 'Robot') {
             robotScore++;
         }   
-    } else {
-        console.log('Answer incorrect!'); // Diagnostic
-        console.log('User score is now ' + userScore);
     }
     userScoreDisplay.innerHTML = (userScore);
     robotScoreDisplay.innerHTML = (robotScore);
-    questionNumber++; //Increment qustion number
+    questionNumber++; // Increment question number.
     winLoseOrTie();
 }
 
@@ -228,8 +228,7 @@ function robotWillAnswerIn() {
     }, 1000);
 }
 
-// Check that an answer has been selected before letting user submit
-
+// Check that an answer has been selected before letting user submit.
 function isThereAnAnswer() {
     if (player === 'User') {
         if (answerSelection === 0) {
@@ -239,7 +238,6 @@ function isThereAnAnswer() {
         }
     } else if (player === 'Robot') {
         robotAnswer();
-        console.log(answerSelection);
         answerCheck();
     }
 }
@@ -249,11 +247,9 @@ buttonCheck.addEventListener('click', isThereAnAnswer);
 
 // Calculates if there is a winner, or need for a tie breaker question
 function winLoseOrTie() {
-    console.log("It's question " + questionNumber + ' and the score is: User ' + userScore + ' Robot ' + robotScore);
     if (questionNumber === 10) { // If each player has gotten 5 questions... 
-        if (userScore == robotScore) { // And the sscores are the same, it moves on to the last question.
-            console.log('This game is tied and will move to a bonus round.')
-            calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
+        if (userScore == robotScore) { // And the scores are the same, it moves on to the last question.
+            calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot.
             if (player === 'User') {
                 userTurn();
             } else if (player === 'Robot');
@@ -264,13 +260,12 @@ function winLoseOrTie() {
             robotWins();
         }
     } else if (questionNumber < 10) {
-        calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot
+        calculateWhoIsAnswering(); // Decide if the next turn is the user or the robot.
         if (player === 'User') {
             userTurn();
         } else if (player === 'Robot');
             robotTurn();
     } else if (questionNumber > 10) {
-        console.log('How did you get here?');
         if (userScore > robotScore) {
             userWins();
         } else if (userScore >= robotScore) {
@@ -279,8 +274,8 @@ function winLoseOrTie() {
     }
 }
 
-function userWins() {
-    console.log('User has won!');
+// These two functions display winner text and change the art. This will change to a div that hovers over the game, and asks if the player wants to play again.
+function userWins() {;
     player = 'User';
     changeDiv();
     let userWinner = document.getElementById('player-picture');
@@ -292,7 +287,6 @@ function userWins() {
 }
 
 function robotWins() {
-    console.log('The robots have won and we have reached singularity.');
     player = 'Robot'
     changeDiv();
     let robotWinner = document.getElementById('player-picture');
@@ -311,6 +305,7 @@ function playTheGame() {
     robotScoreDisplay.innerHTML = (robotScore);
 }
 
+// These two functions run the game between questions.
 function userTurn() {
     whatRoundIsIt();
     changeDiv();
@@ -330,9 +325,10 @@ function robotTurn() {
 
 indicate chosen answer, correct answer.
 
-change question to 'round' and advance it every 2 turns, and to tiebreaker at the end
-
 cover div!
 accept and verify user name, and display it (come up with robot names, that it will choose at random, and display it)
+
+another cover div!
+declare the winner, ask the user if they would like to play the game.
 
 */
