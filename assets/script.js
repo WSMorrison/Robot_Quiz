@@ -7,6 +7,7 @@ let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&t
 let questions;
 let correctPosition;
 let answerSelection;
+let halfRound = 1;
 let userScore = 0; // Set user score for start.
 let robotScore = 0; // Set robot score for start.
 let userScoreDisplay = document.getElementById('user-score');
@@ -35,7 +36,13 @@ function calculateWhoIsAnswering() {
     } else {
         player = 'User';
     }
+    halfRound++;
     console.log('It is the ' + player + "'s turn.");
+}
+
+function whatRoundIsIt() {
+    let itIsThisRound = Math.floor(halfRound / 2);
+    document.getElementById('round-display').innerHTML = ('Round ' + itIsThisRound);
 }
 
 // Changes the orientation of the question-box div and the image in the player-image div based on whose turn it is.
@@ -211,11 +218,11 @@ function robotWillAnswerIn() {
         clearInterval(robotCountdown);
         let submitButton = document.getElementById('button-check');
         submitButton.removeAttribute('disabled');
-        document.getElementById("prompt").innerHTML = ('Ready!');
+        document.getElementById('prompt').innerHTML = ('Ready!');
     } else {
         let submitButton = document.getElementById('button-check');
         submitButton.setAttribute('disabled', 'disabled');
-        document.getElementById("prompt").innerHTML = ('Robot will decide in ' + countDown);
+        document.getElementById('prompt').innerHTML = ('Calculating ' + countDown);
     }
     countDown -= 1;
     }, 1000);
@@ -305,12 +312,14 @@ function playTheGame() {
 }
 
 function userTurn() {
+    whatRoundIsIt();
     changeDiv();
     displayQuestion();
     displayAnswers();
 }
 
 function robotTurn() {
+    whatRoundIsIt();
     changeDiv();
     displayQuestion();
     displayAnswers();
