@@ -203,6 +203,8 @@ function isThereAnAnswer() {
             answerCheck();
         }
     } else if (player === 'Robot') {
+        robotAnswer();
+        console.log(answerSelection);
         answerCheck();
     }
 }
