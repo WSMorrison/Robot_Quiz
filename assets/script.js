@@ -201,7 +201,7 @@ buttonFour.addEventListener('click', answerFourSelect);
 // By setting answerSelection to 5, the robot cannot get it right, preventing the robot from accidentally getting it right and changing the odds.
 function robotAnswer() {
     let robotThinking = Math.floor(Math.random() * 100);
-    if (robotThinking < 1) { 
+    if (robotThinking < 80) { 
         answerSelection = correctPosition;
     } else {
         answerSelection = 5
