@@ -370,11 +370,3 @@ function newGame() {
         function() {playTheGame()}
     );
 }
-
-
-/*
-
-another cover div!
-declare the winner, ask the user if they would like to play the game.
-
-*/
