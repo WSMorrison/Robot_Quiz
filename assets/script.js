@@ -22,6 +22,7 @@ function getUsername() {
     userName = userNameText.value;
     console.log(userName);
     document.getElementById('user-name-display').innerHTML = (userName);
+    document.getElementById('cover').style.visibility = ('hidden');
 }
 
 let usernameButton = document.getElementById('user-name-button')
