@@ -45,8 +45,8 @@ body {
     background-color:rgb(180, 150, 150);
     position: fixed;
     top: 10rem;
-    width:75%;
     height: 60rem;
+    width:75%;
     z-index:100;
     display: flex;
     flex-direction: column;
@@ -108,9 +108,9 @@ body {
     visibility: hidden;
     background-color:rgb(180, 150, 150);
     position: fixed;
-    top: 10rem;
-    width:75%;
+    top: 58rem;
     height: 10rem;
+    width: 30rem; 
     z-index:100;
     display: flex;
     flex-direction: row;
@@ -162,6 +162,10 @@ body {
     #answer-display {
         width: 55rem;
     }
+
+    #answer-cover {
+        width: 55rem;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -196,6 +200,10 @@ body {
     }
 
     #answer-display {
+        width: 75rem;
+    }
+
+    #answer-cover {
         width: 75rem;
     }
 

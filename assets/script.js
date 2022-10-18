@@ -211,11 +211,25 @@ function answerCheck() {
     if (correctPosition === answerSelection) {
         if (player === 'User') {
             document.getElementById('answer-cover').style.visibility = ('visible');
-            document.getElementById('answer-cover').innerHTML = ('You got it right!');
+            document.getElementById('answer-showoff').innerHTML = ('You got it right!');
+            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-face-smile"></i>');
             userScore++;
         } else if (player === 'Robot') {
+            document.getElementById('answer-cover').style.visibility = ('visible');
+            document.getElementById('answer-showoff').innerHTML = ('The robot got it right!');
+            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-robot"></i>');
             robotScore++;
         }   
+    } else {
+        if (player === 'User') {
+            document.getElementById('answer-cover').style.visibility = ('visible');
+            document.getElementById('answer-showoff').innerHTML = ('You got it wrong! You should have selected ' + questions.results[questionNumber].correct_answer);
+            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-face-sad-tear"></i>');
+        } else if (player === 'Robot') {
+            document.getElementById('answer-cover').style.visibility = ('visible');
+            document.getElementById('answer-showoff').innerHTML = ('The robot got it wrong! The robot should have selected ' + questions.results[questionNumber].correct_answer + ' but selected ' + questions.results[questionNumber].incorrect_answers[1]);
+            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-face-sad-tear"></i>');
+        }
     }
     userScoreDisplay.innerHTML = (userScore);
     robotScoreDisplay.innerHTML = (robotScore);
