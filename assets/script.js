@@ -17,12 +17,10 @@ let robotScoreDisplay = document.getElementById('robot-score');
 // Global functions.
 
 function getUsername() {
-    console.log('Functionnnnnnnn.')
     let userNameText = document.getElementById('username');
     userName = userNameText.value;
-    console.log(userName);
     document.getElementById('user-name-display').innerHTML = (userName);
-    document.getElementById('cover').style.visibility = ('hidden');
+    document.getElementById('game-cover').style.visibility = ('hidden');
 }
 
 let usernameButton = document.getElementById('user-name-button')
@@ -212,6 +210,8 @@ function robotAnswer() {
 function answerCheck() {
     if (correctPosition === answerSelection) {
         if (player === 'User') {
+            document.getElementById('answer-cover').style.visibility = ('visible');
+            document.getElementById('answer-cover').innerHTML = ('You got it right!');
             userScore++;
         } else if (player === 'Robot') {
             robotScore++;

@@ -39,7 +39,7 @@ body {
     width: 7rem;
 }
 
-#cover {
+#game-cover {
     opacity:0.99;
     visibility: visible;
     background-color:rgb(180, 150, 150);
@@ -101,6 +101,19 @@ body {
     background-color:rgb(150, 150, 150);
     height: 4rem;
     width: 11rem;
+}
+
+#answer-cover {
+    opacity:0.99;
+    visibility: hidden;
+    background-color:rgb(180, 150, 150);
+    position: fixed;
+    top: 10rem;
+    width:75%;
+    height: 10rem;
+    z-index:100;
+    display: flex;
+    flex-direction: row;
 }
 
 #button-container {
