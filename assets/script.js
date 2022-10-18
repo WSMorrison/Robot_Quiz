@@ -4,6 +4,7 @@ console.log ('JavaScript file has been called sucessfully.');
 
 let questionNumber = 0; // Set for start.
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
+let userName;
 let questions;
 let correctPosition;
 let answerSelection;
@@ -14,6 +15,17 @@ let userScoreDisplay = document.getElementById('user-score');
 let robotScoreDisplay = document.getElementById('robot-score');
 
 // Global functions.
+
+function getUsername() {
+    console.log('Functionnnnnnnn.')
+    let userNameText = document.getElementById('username');
+    userName = userNameText.value;
+    console.log(userName);
+    document.getElementById('user-name-display').innerHTML = (userName);
+}
+
+let usernameButton = document.getElementById('user-name-button')
+usernameButton.addEventListener('click', getUsername);
 
 // Retrieves the questions and check the retreival in console.
 async function goGetApi() {
