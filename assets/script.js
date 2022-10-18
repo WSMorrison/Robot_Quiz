@@ -36,7 +36,6 @@ async function goGetApi() {
 
 // Calls the function to go get the questions, and starts the game when the questions are loaded.
 goGetApi().then(
-
     function() {playTheGame()}
 );
 
@@ -214,23 +213,35 @@ function answerCheck() {
             document.getElementById('answer-showoff').innerHTML = ('You got it right!');
             document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-face-smile"></i>');
             userScore++;
+            let buttonAdvance = document.getElementById('answer-cover')
+            buttonAdvance.addEventListener('click', advanceQuestion);
         } else if (player === 'Robot') {
             document.getElementById('answer-cover').style.visibility = ('visible');
-            document.getElementById('answer-showoff').innerHTML = ('The robot got it right!');
+            document.getElementById('answer-showoff').innerHTML = ('The robot selected ' + questions.results[questionNumber].correct_answer + ' and got it right.');
             document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-robot"></i>');
             robotScore++;
+            let buttonAdvance = document.getElementById('answer-cover')
+            buttonAdvance.addEventListener('click', advanceQuestion);
         }   
     } else {
         if (player === 'User') {
             document.getElementById('answer-cover').style.visibility = ('visible');
             document.getElementById('answer-showoff').innerHTML = ('You got it wrong! You should have selected ' + questions.results[questionNumber].correct_answer);
             document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-face-sad-tear"></i>');
+            let buttonAdvance = document.getElementById('answer-cover')
+            buttonAdvance.addEventListener('click', advanceQuestion);
         } else if (player === 'Robot') {
             document.getElementById('answer-cover').style.visibility = ('visible');
             document.getElementById('answer-showoff').innerHTML = ('The robot got it wrong! The robot should have selected ' + questions.results[questionNumber].correct_answer + ' but selected ' + questions.results[questionNumber].incorrect_answers[1]);
-            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-face-sad-tear"></i>');
+            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-robot"></i>');
+            let buttonAdvance = document.getElementById('answer-cover')
+            buttonAdvance.addEventListener('click', advanceQuestion);
         }
     }
+}
+
+function advanceQuestion() {
+    document.getElementById('answer-cover').style.visibility = ('hidden');
     userScoreDisplay.innerHTML = (userScore);
     robotScoreDisplay.innerHTML = (robotScore);
     questionNumber++; // Increment question number.
@@ -311,6 +322,7 @@ function userWins() {;
     userWinner.style.backgroundSize = 'cover';
     let questionDisplay = document.getElementById('question');
     questionDisplay.innerHTML = ('Congratulations! You have won and saved us from the malevolent robot overlords!');
+    document.getElementById('play-again').style.visibility = ('visible');
 }
 
 function robotWins() {
@@ -322,6 +334,7 @@ function robotWins() {
     robotWinner.style.backgroundSize = 'cover';
     let questionDisplay = document.getElementById('question');
     questionDisplay.innerHTML = ('The robot has won! You will now sit inside its refrigerator and cool the robofood');
+    document.getElementById('play-again').style.visibility = ('visible');
 }
 
 // Starts gameplay after the questions have been retrieved.
@@ -347,13 +360,19 @@ function robotTurn() {
     displayAnswers();
 }
 
+function newGame() {
+    document.getElementById('play-again').style.visibility = ('hidden');
+    questionNumber = 0;
+    halfRound = 1;
+    userScore = 0; // Set user score for start.
+    robotScore = 0; // Set robot score for start.
+    goGetApi().then(
+        function() {playTheGame()}
+    );
+}
+
 
 /*
-
-indicate chosen answer, correct answer.
-
-cover div!
-accept and verify user name, and display it (come up with robot names, that it will choose at random, and display it)
 
 another cover div!
 declare the winner, ask the user if they would like to play the game.
