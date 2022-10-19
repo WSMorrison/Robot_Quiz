@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Gochi+Hand|Sniglet|Freckle+Face|Libre+Barcode+39+Text");
+
 html {
     font-size: 62.5%;
     margin: 0;
@@ -7,6 +9,7 @@ html {
 body {
     background-color: rgb(180, 180, 180);
     font-size: 1.6rem;
+    font-family: 'Sniglet', serif;
 }
 
 .center {
@@ -18,15 +21,32 @@ body {
 
 #header-box {
     background-color:rgb(170, 170, 170);
-    height: 9rem;
+    height: 15rem;
     width: 30rem;
     text-align: center;
+    font-family: 'Freckle Face', serif;
+}
+
+#header-box > h1 {
+    font-size: 5rem;
+}
+
+#scores-section {
+    height: 15rem;
+}
+
+#score-is {
+    height: 5rem;
+    font-family: 'Gochi Hand', serif;
+    font-size: 2rem;
 }
 
 #scores-container {
     background-color:rgb(170, 170, 170);
     height: 10rem;
     width: 30rem;
+    font-family: 'Gochi Hand', serif;
+    font-size: 3rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -35,26 +55,34 @@ body {
 
 .score-box {
     background-color:rgb(160, 160, 160);
-    height: 7rem;
-    width: 7rem;
+    height: 10rem;
+    width: 10rem;
 }
 
 #game-cover {
-    opacity:0.99;
+    opacity:0.95;
     visibility: visible;
-    background-color:rgb(180, 150, 150);
+    background-color:rgb(150, 150, 150);
+    backdrop-filter: blur(5px);
+    font-size: 2rem;
     position: fixed;
     top: 10rem;
-    height: 60rem;
-    width:75%;
+    height: 90rem;
+    width:100%;
     z-index:100;
     display: flex;
     flex-direction: column;
 }
 
+#round-is {
+    height: 5rem;
+    font-family: 'Gochi Hand', serif;
+    font-size: 2.25rem;
+}
+
 #question-container {
     background-color:rgb(170, 170, 170);
-    height: 45rem;
+    height: 36rem;
     width: 30rem;
     display: flex;
     flex-direction: column;
@@ -76,19 +104,20 @@ body {
     background: url(.//images/logo-robot.png);
     background-position: center;
     background-size: cover;
-    height: 10rem;
-    width: 10rem;
+    height: 15rem;
+    width: 15rem;
 }
 
 #question-display {
     background-color:rgb(150, 150, 150);
-    height: 15rem;
+    height: 10rem;
     width: 30rem;
+    text-align: center;
 }
 
 #answer-display {
     background-color:rgb(160, 160, 160);
-    height: 15rem;
+    height: 10rem;
     width: 30rem;
     display: flex;
     flex-direction: row;
@@ -104,9 +133,10 @@ body {
 }
 
 #answer-cover {
-    opacity:0.99;
+    opacity:0.95;
     visibility: hidden;
-    background-color:rgb(180, 150, 150);
+    background-color:rgb(150, 150, 150);
+    backdrop-filter: blur(5px);
     position: fixed;
     top: 58rem;
     height: 10rem;
@@ -116,10 +146,11 @@ body {
     flex-direction: row;
 }
 
-#play-again {
-    opacity:0.99;
+#play-again-cover {
+    opacity:0.95;
     visibility: hidden;
-    background-color:rgb(180, 150, 150);
+    background-color:rgb(150, 150, 150);
+    backdrop-filter: blur(5px);
     position: fixed;
     top: 58rem;
     height: 10rem;
@@ -131,20 +162,30 @@ body {
 
 #button-container {
     background-color:rgb(160, 160, 160);
-    height: 10rem;
+    height: 5rem;
     width: 30rem;
 }
 
 #footer-box {
     background-color:rgb(170, 170, 170);
-    height: 3rem;
-    width: 30rem;
+    height: 5rem;
+    width: 100%;
     text-align: center;
+    font-family: 'Libre Barcode 39 Text';
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
 }
 
 .socials-links {
     color: rgb(0, 0, 0);
     text-decoration: none;
+}
+
+.socials-icon {
+    width: 5rem;
 }
 
 @media only screen and (min-width: 576px) {
@@ -187,6 +228,10 @@ body {
         width: 75rem;
         font-size: 2.5rem;
     }    
+
+    #header-box > h1 {
+        font-size: 10rem;
+    }
 
     #question-container {
         height: 30rem;

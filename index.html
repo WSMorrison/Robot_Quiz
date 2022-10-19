@@ -9,18 +9,21 @@
         <link rel='shortcut icon' type='image/x-icon' href='robot-favicon.ico' />
         <script src="https://kit.fontawesome.com/b55a0d10fe.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="assets/style.css">
-        <title>Nefarious Robot Quiz!</title>
+        <title>Nefarious Robot!</title>
     </head>
 
     <body>
+    
+<!-- Header with title -->
         <header>
             <div id="header-box" class="center">
                 <h1>Nefarious Robot!</h1>
             </div>
         </header>
 
-        <section>
-            <div class="center">
+<!-- Score section -->
+        <section id="scores-section">
+            <div id="score-is" class="center">
                 <h2>The Score is:</h2>
             </div>
             <div id="scores-container" class="center">
@@ -35,8 +38,11 @@
             </div>
         </section>
 
+<!-- Game play section -->
         <section>
             <div class="center">
+
+<!-- Cover div the game and get user name -->
                 <div id="game-cover" class="center">
                     <div id="rules-box">
                     <p>Five rounds.<br>You get a question, the robot gets a question.<br>If tied after five rounds, you get a make-it, take-it question.</p>
@@ -46,36 +52,41 @@
                         <button id="user-name-button" type="button">Let's go!</button>
                     </div>
                 </div>
+
+<!-- Qustion and answer area -->
             </div>
-            <div class="center">
-                <h2 id="round-display">Question</h2>
+            <div id="round-is" class="center">
+                <h2 id="round-display">Round</h2>
             </div>
             <div id="question-container" class="center">
                 <div id="question-box" >
                     <div id="player-picture">
-                        <p></p>
                     </div>
                     <div id="question-display">
                         <p id="question">Question</p>
                     </div>
                 </div>
                 <div id="answer-display">
+
+<!-- Cover div to show correct answer -->
                     <div id="answer-cover">
                         <div id="answer-showoff"></div>
                         <div>
                             <button id="answer-cover-remove" type="button">Button</button>
                         </div>
                     </div>
-                    <div id="play-again">
+
+<!-- Cover div to show winner, and restart game if chosen -->
+                    <div id="play-again-cover">
                         <p>Play again?</p>
                         <div>
                             <button id="play-again-yes" type="button" onclick="newGame()">Yes</button>
                         </div>
                         <div>
-                            <button id="play-again-no" type="button" onclick="location.href='https://www.google.com/search?q=why+don%27t+people+like+to+play+fun+games&sxsrf=ALiCzsbGQyg5rSTzlmyQDGkXHYUpD4HI0w%3A1666106134871&source=hp&ei=FsNOY9OAMdGZhbIP8ouvoAs&iflsig=AJiK0e8AAAAAY07RJqfZi4NTRvlvzWs8-QIjpnDQZyN_&ved=0ahUKEwjT48qCier6AhXRTEEAHfLFC7QQ4dUDCAg&uact=5&oq=why+don%27t+people+like+to+play+fun+games&gs_lcp=Cgdnd3Mtd2l6EAM6BwgjEOoCECc6BAgjECc6BQgAEJECOgoIABCxAxCDARBDOgsIABCABBCxAxCDAToLCC4QgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgQIABBDOggIABCxAxCDAToFCAAQgAQ6CAguEIAEELEDOg4ILhCxAxCDARDHARCvAToHCAAQgAQQAzoFCC4QgAQ6CAgAEIAEEMkDOgUIABCGA1CnBlitQGCDQmgGcAB4AIAByQGIAeoWkgEGNDEuMi4xmAEAoAEBsAEK&sclient=gws-wiz'" value="Go to Google">No</button>
-
+                            <button id="play-again-no" type="button" onclick="location.href='https://www.google.com/search?q=why+don%27t+people+like+to+play+fun+games&sxsrf=ALiCzsbGQyg5rSTzlmyQDGkXHYUpD4HI0w%3A1666106134871&source=hp&ei=FsNOY9OAMdGZhbIP8ouvoAs&iflsig=AJiK0e8AAAAAY07RJqfZi4NTRvlvzWs8-QIjpnDQZyN_&ved=0ahUKEwjT48qCier6AhXRTEEAHfLFC7QQ4dUDCAg&uact=5&oq=why+don%27t+people+like+to+play+fun+games&gs_lcp=Cgdnd3Mtd2l6EAM6BwgjEOoCECc6BAgjECc6BQgAEJECOgoIABCxAxCDARBDOgsIABCABBCxAxCDAToLCC4QgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgQIABBDOggIABCxAxCDAToFCAAQgAQ6CAguEIAEELEDOg4ILhCxAxCDARDHARCvAToHCAAQgAQQAzoFCC4QgAQ6CAgAEIAEEMkDOgUIABCGA1CnBlitQGCDQmgGcAB4AIAByQGIAeoWkgEGNDEuMi4xmAEAoAEBsAEK&sclient=gws-wiz'" rel="noopener" value="Go to Google" aria-text="Link out of game to Google home page, opens in the same tab.">No</button>
                         </div>
                     </div>
+
                     <button id="answer-one" class="answer" type="button">Answer1</button>
                     <button id="answer-two" class="answer" type="button">Answer2</button>
                     <button id="answer-three" class="answer" type="button">Answer3</button>
@@ -93,10 +104,17 @@
             </div>
         </section>
 
+<!-- Footer with social media link -->        
         <footer>
             <div id="footer-box" class="center">
                 <div>
+                    <p>Nefarious</p>
+                </div>
+                <div class="socials-icon">
                     <a class="socials-links" href="https://www.instagram.com/nefariousrobot/" target="_blank" rel="noopener" aria-label="Link to Nefarious Robot Instagram, opens in new tab."><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div>
+                    <p>Robot</p>
                 </div>
             </div>
         </footer>
