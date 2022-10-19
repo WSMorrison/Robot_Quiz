@@ -74,6 +74,14 @@ body {
     flex-direction: column;
 }
 
+#rules-box {
+    width: 25rem;
+}
+
+#username-ruleset {
+    font-size: 1.25rem;
+}
+
 #round-is {
     height: 5rem;
     font-family: 'Gochi Hand', serif;
@@ -90,7 +98,7 @@ body {
     align-items: center;
 }
 
-#question-box{
+#question-box {
     background-color: rgb(160, 160, 160);
     height: 25rem;
     width: 30rem;
