@@ -72,10 +72,10 @@ function changeDiv() {
     let buttonDos = document.getElementById('answer-two');
     let buttonTres = document.getElementById('answer-three');
     let buttonAudi = document.getElementById('answer-four');
-    buttonUno.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonDos.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonTres.style.backgroundColor = 'rgb(150, 150, 150)';
-    buttonAudi.style.backgroundColor = 'rgb(150, 150, 150)';
+    buttonUno.style.backgroundColor = 'rgb(var(--window-color))';
+    buttonDos.style.backgroundColor = 'rgb(var(--window-color))';
+    buttonTres.style.backgroundColor = 'rgb(var(--window-color))';
+    buttonAudi.style.backgroundColor = 'rgb(var(--window-color))';
     if (player === 'User') {
         buttonUno.removeAttribute('disabled');
         buttonDos.removeAttribute('disabled');
@@ -162,31 +162,31 @@ function displayAnswers() {
 
 // User answer selection, but only if it is user's turn.
 function answerOneSelect() {
-        buttonOne.style.backgroundColor = 'rgb(180, 180, 180)';
-        buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
-        buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
-        buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonOne.style.backgroundColor = 'rgb(var(--header-footer-color))';
+        buttonTwo.style.backgroundColor = 'rgb(var(--window-color))';
+        buttonThree.style.backgroundColor = 'rgb(var(--window-color))';
+        buttonFour.style.backgroundColor = 'rgb(var(--window-color))';
         answerSelection = 1;
 }
 function answerTwoSelect() {
-        buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
-        buttonTwo.style.backgroundColor = 'rgb(180, 180, 180)';
-        buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
-        buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonOne.style.backgroundColor = 'rgb(var(--window-color))';
+        buttonTwo.style.backgroundColor = 'rgb(var(--header-footer-color))';
+        buttonThree.style.backgroundColor = 'rgb(var(--window-color))';
+        buttonFour.style.backgroundColor = 'rgb(var(--window-color))';
         answerSelection = 2;
 }
 function answerThreeSelect() {
-        buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
-        buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
-        buttonThree.style.backgroundColor = 'rgb(180, 180, 180)';
-        buttonFour.style.backgroundColor = 'rgb(150, 150, 150)';
+        buttonOne.style.backgroundColor = 'rgb(var(--window-color))';
+        buttonTwo.style.backgroundColor = 'rgb(var(--window-color))';
+        buttonThree.style.backgroundColor = 'rgb(var(--header-footer-color))';
+        buttonFour.style.backgroundColor = 'rgb(var(--window-color))';
         answerSelection = 3;
 }
 function answerFourSelect() {
-        buttonOne.style.backgroundColor = 'rgb(150, 150, 150)';
-        buttonTwo.style.backgroundColor = 'rgb(150, 150, 150)';
-        buttonThree.style.backgroundColor = 'rgb(150, 150, 150)';
-        buttonFour.style.backgroundColor = 'rgb(180, 180, 180)';
+        buttonOne.style.backgroundColor = 'rgb(var(--window-color))';
+        buttonTwo.style.backgroundColor = 'rgb(var(--window-color))';
+        buttonThree.style.backgroundColor = 'rgb(var(--window-color))';
+        buttonFour.style.backgroundColor = 'rgb(var(--header-footer-color))';
         answerSelection = 4;
 }
 
@@ -327,7 +327,7 @@ function userWins() {;
     userWinner.style.backgroundSize = 'cover';
     let questionDisplay = document.getElementById('question');
     questionDisplay.innerHTML = ('Congratulations! You have won and saved us from the malevolent robot overlords!');
-    document.getElementById('play-again').style.visibility = ('visible');
+    document.getElementById('play-again-cover').style.visibility = ('visible');
 }
 
 function robotWins() {
@@ -339,7 +339,7 @@ function robotWins() {
     robotWinner.style.backgroundSize = 'cover';
     let questionDisplay = document.getElementById('question');
     questionDisplay.innerHTML = ('The robot has won! You will now sit inside its refrigerator and cool the robofood');
-    document.getElementById('play-again').style.visibility = ('visible');
+    document.getElementById('play-again-cover').style.visibility = ('visible');
 }
 
 // Starts gameplay after the questions have been retrieved.
@@ -366,7 +366,7 @@ function robotTurn() {
 }
 
 function newGame() {
-    document.getElementById('play-again').style.visibility = ('hidden');
+    document.getElementById('play-again-cover').style.visibility = ('hidden');
     questionNumber = 0;
     halfRound = 1;
     userScore = 0; // Set user score for start.
