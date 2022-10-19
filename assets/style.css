@@ -43,7 +43,7 @@ body {
 #header-box {
     background-color: rgb(var(--header-footer-color));
     height: 15rem;
-    width: 30rem;
+    width: 100%;
     text-align: center;
     font-family: 'Freckle Face', serif;
     color: rgb(var(--text-border-color));
@@ -263,10 +263,6 @@ footer {
 }
 
 @media only screen and (min-width: 576px) {
-    
-    #header-box {
-        width: 55rem;
-    }
 
     #header-box > h1 {
         font-size: 7rem;
@@ -275,10 +271,6 @@ footer {
     #question-container {
         height: 30rem;
         width: 55rem;
-    }
-
-    #footer-box {
-        width: 100%;
     }
 
     #question-box {
@@ -312,11 +304,7 @@ footer {
     }
 }
 
-@media only screen and (min-width: 768px) {
-
-    #header-box {
-        width: 75rem;
-    }    
+@media only screen and (min-width: 768px) {  
 
     #header-box > h1 {
         font-size: 10rem;
@@ -354,9 +342,5 @@ footer {
         height: 15rem;
         width: 75rem;
         top: 61rem;
-    }
-    
-    #footer-box {
-        width: 100%;
     }
 }
