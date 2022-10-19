@@ -29,6 +29,10 @@ body {
     color: rgb(var(--text-border-color))
 }
 
+#super-wrapper {
+    min-height: calc(100vh - 5rem);
+}
+
 .center {
     margin: auto;
     display: flex;
@@ -234,6 +238,10 @@ body {
     justify-content: space-around;
 }
 
+footer {
+    height: 5rem;
+}
+
 #footer-box {
     background-color: rgb(var(--header-footer-color));
     height: 5rem;
@@ -243,8 +251,6 @@ body {
     font-size: 3rem;
     display: flex;
     flex-direction: row;
-    position: fixed;
-    bottom: 0;
 }
 
 .socials-links {

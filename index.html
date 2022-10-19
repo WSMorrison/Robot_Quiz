@@ -13,128 +13,129 @@
     </head>
 
     <body>
-    
+        <div id="super-wrapper">
+
 <!-- Header with title -->
-        <header>
-            <div id="header-box" class="center">
-                <h1>Nefarious Robot!</h1>
-            </div>
-        </header>
+            <header>
+                <div id="header-box" class="center">
+                    <h1>Nefarious Robot!</h1>
+                </div>
+            </header>
 
 <!-- Score section -->
-        <section id="scores-section">
-            <div id="score-is" class="center">
-                <h2>The Score is:</h2>
-            </div>
-            <div id="scores-container" class="center">
-                <div class="score-box">
-                    <div  class="name-display">
-                        <p id="user-name-display">User</p>
+            <section id="scores-section">
+                <div id="score-is" class="center">
+                    <h2>The Score is:</h2>
+                </div>
+                <div id="scores-container" class="center">
+                    <div class="score-box">
+                        <div  class="name-display">
+                            <p id="user-name-display">User</p>
+                        </div>
+                        <div class="score-display">
+                            <p id="user-score"></p>
+                        </div>
                     </div>
-                    <div class="score-display">
-                        <p id="user-score"></p>
+                    <div class="score-box">
+                        <div class="name-display">
+                            <p id="robot-name-display">Robot</p>
+                        </div>
+                        <div class="score-display">
+                            <p id="robot-score"></p>
+                        </div>
                     </div>
                 </div>
-                <div class="score-box">
-                    <div class="name-display">
-                        <p id="robot-name-display">Robot</p>
-                    </div>
-                    <div class="score-display">
-                        <p id="robot-score"></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
 <!-- Game play section -->
-        <section>
-            <div class="center">
+            <section>
+                <div class="center">
 
 <!-- Cover div the game and get user name -->
-                <div id="game-cover" class="center">
-                    <div id="rules-box">
-                        <p>In our ongoing struggle<br>with the metal ones,<br>you have been chosen.<br></p>
-                        <h4>Rules:</h4>
-                        <p>Five rounds.</p>
-                        <p>You get a question, the robot gets a question.</p>
-                        <p>If tied after five rounds, you get a make-it, take-it question.</p>
+                    <div id="game-cover" class="center">
+                        <div id="rules-box">
+                            <p>In our ongoing struggle<br>with the metal ones,<br>you have been chosen.<br></p>
+                            <h4>Rules:</h4>
+                            <p>Five rounds.</p>
+                            <p>You get a question, the robot gets a question.</p>
+                            <p>If tied after five rounds, you get a make-it, take-it question.</p>
+                        </div>
+                        <div id="username-form">
+                            <input type="text" id="username" name="username" placeholder="What's your name?">
+                            <button id="user-name-button" type="button">Let's go!</button>
+                            <p id="username-ruleset">Username must be 6 characters or less.</p>
+                        </div>
                     </div>
-                    <div id="username-form">
-                        <input type="text" id="username" name="username" placeholder="What's your name?">
-                        <button id="user-name-button" type="button">Let's go!</button>
-                        <p id="username-ruleset">Username must be 6 characters or less.</p>
-                    </div>
-                </div>
 
 <!-- Qustion and answer area -->
-            </div>
-            <div id="round-is" class="center">
-                <h2 id="round-display">Round</h2>
-            </div>
-            <div id="question-container" class="center">
-                <div id="question-box" >
-                    <div id="player-picture">
-                    </div>
-                    <div id="question-display">
-                        <p id="question">Question</p>
-                    </div>
                 </div>
-                <div id="answer-display">
+                <div id="round-is" class="center">
+                    <h2 id="round-display">Round</h2>
+                </div>
+                <div id="question-container" class="center">
+                    <div id="question-box" >
+                        <div id="player-picture">
+                        </div>
+                        <div id="question-display">
+                            <p id="question">Question</p>
+                        </div>
+                    </div>
+                    <div id="answer-display">
 
 <!-- Cover div to show correct answer -->
-                    <div id="answer-cover" class="center">
-                        <div id="answer-showoff"></div>
-                        <div>
-                            <button id="answer-cover-remove" type="button">Button</button>
+                        <div id="answer-cover" class="center">
+                            <div id="answer-showoff"></div>
+                            <div>
+                                <button id="answer-cover-remove" type="button">Button</button>
+                            </div>
                         </div>
-                    </div>
 
 <!-- Cover div to show winner, and restart game if chosen -->
-                    <div id="play-again-cover">
-                        <div>
-                            <p>Play again?</p>
-                        </div>
-                        <div id="play-again-buttons">
+                        <div id="play-again-cover">
                             <div>
-                                <button id="play-again-yes" type="button" onclick="newGame()">Yes</button>
+                                <p>Play again?</p>
                             </div>
-                            <div>
-                                <button id="play-again-no" type="button" onclick="location.href='https://www.google.com/search?q=why+don%27t+people+like+to+play+fun+games&sxsrf=ALiCzsbGQyg5rSTzlmyQDGkXHYUpD4HI0w%3A1666106134871&source=hp&ei=FsNOY9OAMdGZhbIP8ouvoAs&iflsig=AJiK0e8AAAAAY07RJqfZi4NTRvlvzWs8-QIjpnDQZyN_&ved=0ahUKEwjT48qCier6AhXRTEEAHfLFC7QQ4dUDCAg&uact=5&oq=why+don%27t+people+like+to+play+fun+games&gs_lcp=Cgdnd3Mtd2l6EAM6BwgjEOoCECc6BAgjECc6BQgAEJECOgoIABCxAxCDARBDOgsIABCABBCxAxCDAToLCC4QgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgQIABBDOggIABCxAxCDAToFCAAQgAQ6CAguEIAEELEDOg4ILhCxAxCDARDHARCvAToHCAAQgAQQAzoFCC4QgAQ6CAgAEIAEEMkDOgUIABCGA1CnBlitQGCDQmgGcAB4AIAByQGIAeoWkgEGNDEuMi4xmAEAoAEBsAEK&sclient=gws-wiz'" rel="noopener" value="Go to Google" aria-text="Link out of game to Google home page, opens in the same tab.">No</button>
+                            <div id="play-again-buttons">
+                                <div>
+                                    <button id="play-again-yes" type="button" onclick="newGame()">Yes</button>
+                                </div>
+                                <div>
+                                    <button id="play-again-no" type="button" onclick="location.href='https://www.google.com/search?q=why+don%27t+people+like+to+play+fun+games&sxsrf=ALiCzsbGQyg5rSTzlmyQDGkXHYUpD4HI0w%3A1666106134871&source=hp&ei=FsNOY9OAMdGZhbIP8ouvoAs&iflsig=AJiK0e8AAAAAY07RJqfZi4NTRvlvzWs8-QIjpnDQZyN_&ved=0ahUKEwjT48qCier6AhXRTEEAHfLFC7QQ4dUDCAg&uact=5&oq=why+don%27t+people+like+to+play+fun+games&gs_lcp=Cgdnd3Mtd2l6EAM6BwgjEOoCECc6BAgjECc6BQgAEJECOgoIABCxAxCDARBDOgsIABCABBCxAxCDAToLCC4QgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgQIABBDOggIABCxAxCDAToFCAAQgAQ6CAguEIAEELEDOg4ILhCxAxCDARDHARCvAToHCAAQgAQQAzoFCC4QgAQ6CAgAEIAEEMkDOgUIABCGA1CnBlitQGCDQmgGcAB4AIAByQGIAeoWkgEGNDEuMi4xmAEAoAEBsAEK&sclient=gws-wiz'" rel="noopener" value="Go to Google" aria-text="Link out of game to Google home page, opens in the same tab.">No</button>
+                                </div>
                             </div>
                         </div>
+                        <button id="answer-one" class="answer" type="button">Answer1</button>
+                        <button id="answer-two" class="answer" type="button">Answer2</button>
+                        <button id="answer-three" class="answer" type="button">Answer3</button>
+                        <button id="answer-four" class="answer" type="button">Answer4</button>
                     </div>
-
-                    <button id="answer-one" class="answer" type="button">Answer1</button>
-                    <button id="answer-two" class="answer" type="button">Answer2</button>
-                    <button id="answer-three" class="answer" type="button">Answer3</button>
-                    <button id="answer-four" class="answer" type="button">Answer4</button>
                 </div>
-            </div>
-  
-            <div id="button-container" class="center">
-                <div id="prompt-box">
-                    <p id="prompt">Ready! </p>
+    
+                <div id="button-container" class="center">
+                    <div id="prompt-box">
+                        <p id="prompt">Ready! </p>
+                    </div>
+                    <div id="button-box">
+                        <button id="button-check" class="center" type="button">Submit for Judgement</button>
+                    </div>
                 </div>
-                <div id="button-box">
-                    <button id="button-check" class="center" type="button">Submit for Judgement</button>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div> 
 
 <!-- Footer with social media link -->        
-        <footer>
-            <div id="footer-box" class="center">
-                <div>
-                    <p>Nefarious</p>
+            <footer>
+                <div id="footer-box" class="center">
+                    <div>
+                        <p>Nefarious</p>
+                    </div>
+                    <div class="socials-icon">
+                        <a class="socials-links" href="https://www.instagram.com/nefariousrobot/" target="_blank" rel="noopener" aria-label="Link to Nefarious Robot Instagram, opens in new tab."><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <div>
+                        <p>Robot</p>
+                    </div>
                 </div>
-                <div class="socials-icon">
-                    <a class="socials-links" href="https://www.instagram.com/nefariousrobot/" target="_blank" rel="noopener" aria-label="Link to Nefarious Robot Instagram, opens in new tab."><i class="fa-brands fa-instagram"></i></a>
-                </div>
-                <div>
-                    <p>Robot</p>
-                </div>
-            </div>
-        </footer>
+            </footer>
 
         <script src="assets/script.js"></script>
     </body>
