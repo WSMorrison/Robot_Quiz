@@ -77,6 +77,27 @@ body {
     background-color:rgb(var(--window-color));
     height: 10rem;
     width: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-display {
+    height: 3.5rem;
+    width: 10rem;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-display {
+    height: 6.5rem;
+    width: 10rem;
+    font-size: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #game-cover {
@@ -185,13 +206,24 @@ body {
     visibility: hidden;
     background-color: rgba(var(--background-color), 0.95);
     backdrop-filter: blur(5px);
+    font-size: 2rem;
     position: fixed;
     top: 61rem;
     height: 30rem;
-    width: 30rem; 
+    width: 100%; 
     z-index:100;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#play-again-buttons {
+    height: 15rem;
+    width: 20rem;
+    display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 #button-container {
@@ -266,6 +298,12 @@ body {
     #answer-cover {
         width: 55rem;
     }
+
+    #play-again-cover {
+        top: 59rem;
+        height: 15rem;
+        width: 55rem;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -304,6 +342,12 @@ body {
 
     #answer-cover {
         width: 75rem;
+    }
+
+    #play-again-cover {
+        height: 15rem;
+        width: 75rem;
+        top: 61rem;
     }
     
     #footer-box {

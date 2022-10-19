@@ -28,12 +28,20 @@
             </div>
             <div id="scores-container" class="center">
                 <div class="score-box">
-                    <p id="user-name-display" class="center" >User</p>
-                    <p id="user-score" class="center" >User</p>
+                    <div  class="name-display">
+                        <p id="user-name-display">User</p>
+                    </div>
+                    <div class="score-display">
+                        <p id="user-score"></p>
+                    </div>
                 </div>
                 <div class="score-box">
-                    <p id="robot-name-display" class="center">Robot</p>
-                    <p id="robot-score" class="center">Robot</p>
+                    <div class="name-display">
+                        <p id="robot-name-display">Robot</p>
+                    </div>
+                    <div class="score-display">
+                        <p id="robot-score"></p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -83,12 +91,16 @@
 
 <!-- Cover div to show winner, and restart game if chosen -->
                     <div id="play-again-cover">
-                        <p>Play again?</p>
                         <div>
-                            <button id="play-again-yes" type="button" onclick="newGame()">Yes</button>
+                            <p>Play again?</p>
                         </div>
-                        <div>
-                            <button id="play-again-no" type="button" onclick="location.href='https://www.google.com/search?q=why+don%27t+people+like+to+play+fun+games&sxsrf=ALiCzsbGQyg5rSTzlmyQDGkXHYUpD4HI0w%3A1666106134871&source=hp&ei=FsNOY9OAMdGZhbIP8ouvoAs&iflsig=AJiK0e8AAAAAY07RJqfZi4NTRvlvzWs8-QIjpnDQZyN_&ved=0ahUKEwjT48qCier6AhXRTEEAHfLFC7QQ4dUDCAg&uact=5&oq=why+don%27t+people+like+to+play+fun+games&gs_lcp=Cgdnd3Mtd2l6EAM6BwgjEOoCECc6BAgjECc6BQgAEJECOgoIABCxAxCDARBDOgsIABCABBCxAxCDAToLCC4QgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgQIABBDOggIABCxAxCDAToFCAAQgAQ6CAguEIAEELEDOg4ILhCxAxCDARDHARCvAToHCAAQgAQQAzoFCC4QgAQ6CAgAEIAEEMkDOgUIABCGA1CnBlitQGCDQmgGcAB4AIAByQGIAeoWkgEGNDEuMi4xmAEAoAEBsAEK&sclient=gws-wiz'" rel="noopener" value="Go to Google" aria-text="Link out of game to Google home page, opens in the same tab.">No</button>
+                        <div id="play-again-buttons">
+                            <div>
+                                <button id="play-again-yes" type="button" onclick="newGame()">Yes</button>
+                            </div>
+                            <div>
+                                <button id="play-again-no" type="button" onclick="location.href='https://www.google.com/search?q=why+don%27t+people+like+to+play+fun+games&sxsrf=ALiCzsbGQyg5rSTzlmyQDGkXHYUpD4HI0w%3A1666106134871&source=hp&ei=FsNOY9OAMdGZhbIP8ouvoAs&iflsig=AJiK0e8AAAAAY07RJqfZi4NTRvlvzWs8-QIjpnDQZyN_&ved=0ahUKEwjT48qCier6AhXRTEEAHfLFC7QQ4dUDCAg&uact=5&oq=why+don%27t+people+like+to+play+fun+games&gs_lcp=Cgdnd3Mtd2l6EAM6BwgjEOoCECc6BAgjECc6BQgAEJECOgoIABCxAxCDARBDOgsIABCABBCxAxCDAToLCC4QgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgQIABBDOggIABCxAxCDAToFCAAQgAQ6CAguEIAEELEDOg4ILhCxAxCDARDHARCvAToHCAAQgAQQAzoFCC4QgAQ6CAgAEIAEEMkDOgUIABCGA1CnBlitQGCDQmgGcAB4AIAByQGIAeoWkgEGNDEuMi4xmAEAoAEBsAEK&sclient=gws-wiz'" rel="noopener" value="Go to Google" aria-text="Link out of game to Google home page, opens in the same tab.">No</button>
+                            </div>
                         </div>
                     </div>
 
