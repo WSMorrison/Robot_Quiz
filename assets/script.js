@@ -216,14 +216,14 @@ function answerCheck() {
         if (player === 'User') {
             document.getElementById('answer-cover').style.visibility = ('visible');
             document.getElementById('answer-showoff').innerHTML = ('You got it right!');
-            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-face-smile"></i>');
+            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-regular fa-face-smile"></i>' + ' Click to advance.');
             userScore++;
             let buttonAdvance = document.getElementById('answer-cover')
             buttonAdvance.addEventListener('click', advanceQuestion);
         } else if (player === 'Robot') {
             document.getElementById('answer-cover').style.visibility = ('visible');
             document.getElementById('answer-showoff').innerHTML = ('The robot selected ' + questions.results[questionNumber].correct_answer + ' and got it right.');
-            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-robot"></i>');
+            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-robot"></i>' + ' Click to advance.');
             robotScore++;
             let buttonAdvance = document.getElementById('answer-cover')
             buttonAdvance.addEventListener('click', advanceQuestion);
@@ -232,13 +232,13 @@ function answerCheck() {
         if (player === 'User') {
             document.getElementById('answer-cover').style.visibility = ('visible');
             document.getElementById('answer-showoff').innerHTML = ('You got it wrong! You should have selected ' + questions.results[questionNumber].correct_answer);
-            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-face-sad-tear"></i>');
+            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-regular fa-face-sad-tear"></i>' + ' Click to advance.');
             let buttonAdvance = document.getElementById('answer-cover')
             buttonAdvance.addEventListener('click', advanceQuestion);
         } else if (player === 'Robot') {
             document.getElementById('answer-cover').style.visibility = ('visible');
             document.getElementById('answer-showoff').innerHTML = ('The robot got it wrong! The robot should have selected ' + questions.results[questionNumber].correct_answer + ' but selected ' + questions.results[questionNumber].incorrect_answers[1]);
-            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-robot"></i>');
+            document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-solid fa-robot"></i>' + ' Click to advance.');
             let buttonAdvance = document.getElementById('answer-cover')
             buttonAdvance.addEventListener('click', advanceQuestion);
         }
