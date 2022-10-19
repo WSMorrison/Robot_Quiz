@@ -66,8 +66,8 @@ body {
     backdrop-filter: blur(5px);
     font-size: 2rem;
     position: fixed;
-    top: 10rem;
-    height: 90rem;
+    top: 16rem;
+    height: 62rem;
     width:100%;
     z-index:100;
     display: flex;
@@ -138,8 +138,8 @@ body {
     background-color:rgb(150, 150, 150);
     backdrop-filter: blur(5px);
     position: fixed;
-    top: 58rem;
-    height: 10rem;
+    top: 52rem;
+    height: 26rem;
     width: 30rem; 
     z-index:100;
     display: flex;
@@ -152,8 +152,8 @@ body {
     background-color:rgb(150, 150, 150);
     backdrop-filter: blur(5px);
     position: fixed;
-    top: 58rem;
-    height: 10rem;
+    top: 52rem;
+    height: 26rem;
     width: 30rem; 
     z-index:100;
     display: flex;
@@ -200,7 +200,7 @@ body {
     }
 
     #footer-box {
-        width: 55rem;
+        width: 100%;
     }
 
     #question-box {
@@ -239,7 +239,7 @@ body {
     }
 
     #footer-box {
-        width: 75rem;
+        width: 100%;
     }
 
     #question-box {
