@@ -16,11 +16,16 @@ let robotScoreDisplay = document.getElementById('robot-score');
 
 // Global functions.
 
+// Retrieves username from user, and validates that the username is six characters or less.
 function getUsername() {
     let userNameText = document.getElementById('username');
     userName = userNameText.value;
+    if (userName.length > 6) {
+        alert('Username must be less than 6 characters.');
+    } else if (userName.length <= 6) {
     document.getElementById('user-name-display').innerHTML = (userName);
     document.getElementById('game-cover').style.visibility = ('hidden');
+    }
 }
 
 let usernameButton = document.getElementById('user-name-button')
