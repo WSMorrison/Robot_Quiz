@@ -16,7 +16,7 @@ let robotScoreDisplay = document.getElementById('robot-score');
 
 // Global functions.
 
-// Retrieves username from user, and validates that the username is six characters or less.
+// Retrieves username from user, and validates that the username is between one and six characters.
 function getUsername() {
     let userNameText = document.getElementById('username');
     userName = userNameText.value;
@@ -258,6 +258,8 @@ function advanceQuestion() {
 // Hold game until robot is "ready" to answer.
 function robotWillAnswerIn() {
     let countDown = 5;
+    let submitButton = document.getElementById('button-check');
+    submitButton.setAttribute('disabled', 'disabled');
     let robotCountdown = setInterval(function(){
     if(countDown <= 0){
         clearInterval(robotCountdown);
@@ -265,8 +267,6 @@ function robotWillAnswerIn() {
         submitButton.removeAttribute('disabled');
         document.getElementById('prompt').innerHTML = ('Ready!');
     } else {
-        let submitButton = document.getElementById('button-check');
-        submitButton.setAttribute('disabled', 'disabled');
         document.getElementById('prompt').innerHTML = ('Calculating ' + countDown);
     }
     countDown -= 1;
