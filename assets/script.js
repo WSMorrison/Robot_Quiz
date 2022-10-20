@@ -20,9 +20,11 @@ let robotScoreDisplay = document.getElementById('robot-score');
 function getUsername() {
     let userNameText = document.getElementById('username');
     userName = userNameText.value;
-    if (userName.length > 6) {
+    if (userName.length === 0) {
+        alert('Username must not be be blank.')
+    } else if (userName.length > 6) {
         alert('Username must be less than 6 characters.');
-    } else if (userName.length <= 6) {
+    } else if (userName.length <= 6 && userName.length > 0) {
     document.getElementById('user-name-display').innerHTML = (userName);
     document.getElementById('game-cover').style.visibility = ('hidden');
     }
