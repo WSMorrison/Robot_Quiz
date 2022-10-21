@@ -1,5 +1,3 @@
-console.log ('JavaScript file has been called sucessfully.');
-
 // Global variables.
 
 let questionNumber = 0; // Set for start.
@@ -36,11 +34,11 @@ function getUsername() {
 let usernameButton = document.getElementById('user-name-button');
 usernameButton.addEventListener('click', getUsername);
 
-// Retrieves the questions and check the retreival in console.
+// Retrieves the questions and check the retrieval in console.
 async function goGetApi() {
     let apiData = await fetch(apiUrl);
     questions = await apiData.json();
-    console.log('Questions have been retrieved successfully.'); // Tells me that this function is operating.
+    console.log('Questions have been retrieved successfully.'); // Tells me that this function is operating. Intentially left in because this is outside of local control.
     return questions;
 }
 
@@ -60,7 +58,6 @@ function calculateWhoIsAnswering() {
         player = 'User';
     }
     halfRound++; // Passed to whatRoundIsIt().
-    console.log('It is the ' + player + "'s turn.");
 }
 
 // Converts the question number to round number, for style purposes.
