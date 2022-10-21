@@ -369,7 +369,7 @@ function robotTurn() {
     displayAnswers();
 }
 
-/*function newGame() {
+function newGame() {
     document.getElementById('play-again-cover').style.visibility = ('hidden');
     questionNumber = 0;
     halfRound = 1;
@@ -380,4 +380,4 @@ function robotTurn() {
             playTheGame();
         }
     );
-}*/
+}

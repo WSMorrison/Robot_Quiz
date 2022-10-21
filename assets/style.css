@@ -329,6 +329,10 @@ footer {
         width: 55rem;
     }
 
+    #answer-showoff {
+        width: 35rem;
+    }
+
     #play-again-cover {
         top: 59rem;
         height: 15rem;
@@ -368,6 +372,10 @@ footer {
 
     #answer-cover {
         width: 75rem;
+    }
+
+    #answer-showoff {
+        width: 55rem;
     }
 
     #play-again-cover {
