@@ -5,6 +5,7 @@ console.log ('JavaScript file has been called sucessfully.');
 let questionNumber = 0; // Set for start.
 let apiUrl = 'https://opentdb.com/api.php?amount=11&category=9&difficulty=easy&type=multiple';
 let userName;
+let player;
 let questions;
 let correctPosition;
 let answerSelection;
@@ -20,8 +21,10 @@ let robotScoreDisplay = document.getElementById('robot-score');
 function getUsername() {
     let userNameText = document.getElementById('username');
     userName = userNameText.value;
-    if (userName.length === 0) {
-        alert('Username must not be be blank.')
+    if (userName.replace(/\s+/g, '').length == 0) {
+        alert('Username must not be blank.');
+    } else if (userName.length === 0) {
+        alert('Username must not be be blank.');
     } else if (userName.length > 6) {
         alert('Username must be less than 6 characters.');
     } else if (userName.length <= 6 && userName.length > 0) {
@@ -30,7 +33,7 @@ function getUsername() {
     }
 }
 
-let usernameButton = document.getElementById('user-name-button')
+let usernameButton = document.getElementById('user-name-button');
 usernameButton.addEventListener('click', getUsername);
 
 // Retrieves the questions and check the retreival in console.
@@ -43,7 +46,9 @@ async function goGetApi() {
 
 // Calls the function to go get the questions, and starts the game when the questions are loaded.
 goGetApi().then(
-    function() {playTheGame()}
+    function() {
+        playTheGame();
+    }
 );
 
 // Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array.
@@ -208,7 +213,7 @@ function robotAnswer() {
     if (robotThinking < 80) { 
         answerSelection = correctPosition;
     } else {
-        answerSelection = 5
+        answerSelection = 5;
     }
 }
 
@@ -220,14 +225,14 @@ function answerCheck() {
             document.getElementById('answer-showoff').innerHTML = ('You got it right!');
             document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-regular fa-face-smile"></i>' + '&nbsp; Click to advance.');
             userScore++;
-            let buttonAdvance = document.getElementById('answer-cover')
+            let buttonAdvance = document.getElementById('answer-cover');
             buttonAdvance.addEventListener('click', advanceQuestion);
         } else if (player === 'Robot') {
             document.getElementById('answer-cover').style.visibility = ('visible');
             document.getElementById('answer-showoff').innerHTML = ('The robot selected ' + questions.results[questionNumber].correct_answer + ' and got it right.');
             document.getElementById('answer-cover-remove').innerHTML = ('Click to advance. &nbsp;' + '<i class="fa-solid fa-robot"></i>');
             robotScore++;
-            let buttonAdvance = document.getElementById('answer-cover')
+            let buttonAdvance = document.getElementById('answer-cover');
             buttonAdvance.addEventListener('click', advanceQuestion);
         }   
     } else {
@@ -235,13 +240,13 @@ function answerCheck() {
             document.getElementById('answer-cover').style.visibility = ('visible');
             document.getElementById('answer-showoff').innerHTML = ('You got it wrong! You should have selected ' + questions.results[questionNumber].correct_answer);
             document.getElementById('answer-cover-remove').innerHTML = ('<i class="fa-regular fa-face-sad-tear"></i>' + '&nbsp; Click to advance.');
-            let buttonAdvance = document.getElementById('answer-cover')
+            let buttonAdvance = document.getElementById('answer-cover');
             buttonAdvance.addEventListener('click', advanceQuestion);
         } else if (player === 'Robot') {
             document.getElementById('answer-cover').style.visibility = ('visible');
             document.getElementById('answer-showoff').innerHTML = ('The robot got it wrong! The robot should have selected ' + questions.results[questionNumber].correct_answer + ' but selected ' + questions.results[questionNumber].incorrect_answers[1]);
             document.getElementById('answer-cover-remove').innerHTML = ('Click to davance. &nbsp;' + '<i class="fa-solid fa-robot"></i>');
-            let buttonAdvance = document.getElementById('answer-cover')
+            let buttonAdvance = document.getElementById('answer-cover');
             buttonAdvance.addEventListener('click', advanceQuestion);
         }
     }
@@ -320,7 +325,7 @@ function winLoseOrTie() {
 }
 
 // These two functions display winner text and change the art. This will change to a div that hovers over the game, and asks if the player wants to play again.
-function userWins() {;
+function userWins() {
     player = 'User';
     changeDiv();
     let userWinner = document.getElementById('player-picture');
@@ -333,7 +338,7 @@ function userWins() {;
 }
 
 function robotWins() {
-    player = 'Robot'
+    player = 'Robot';
     changeDiv();
     let robotWinner = document.getElementById('player-picture');
     robotWinner.style.background = 'url(.//assets/images/logo-robot.png)'; // NEED NEW ART
@@ -367,13 +372,15 @@ function robotTurn() {
     displayAnswers();
 }
 
-function newGame() {
+/*function newGame() {
     document.getElementById('play-again-cover').style.visibility = ('hidden');
     questionNumber = 0;
     halfRound = 1;
     userScore = 0; // Set user score for start.
     robotScore = 0; // Set robot score for start.
     goGetApi().then(
-        function() {playTheGame()}
+        function() {
+            playTheGame();
+        }
     );
-}
+}*/

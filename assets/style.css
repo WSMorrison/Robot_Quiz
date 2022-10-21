@@ -29,9 +29,11 @@ body {
     font-size: 1.6rem;
     font-family: 'Sniglet', serif;
     color: rgb(var(--text-border-color));
+    padding: 0;
+    margin: 0;
 }
 
-#super-wrapper {
+#super-container {
     min-height: calc(100vh - 5rem);
 }
 
@@ -192,7 +194,6 @@ body {
     height: 10rem;
     width: 30rem;
     text-align: center;
-    padding: 10rem, 5rem;
     border: none;
     border-radius: 5px;
 }

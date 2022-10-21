@@ -4,19 +4,78 @@ Nefarious Robot is a trivia game that pits the human user against a "robot" oppo
 
 The trivia game is up to eleven questions long, giving the human user and the computer one question each across five rounds. The game tracks and displays the score throughout the game. The game displays the the round as the game progresses. If at the end of five rounds the user has answered more questions correctly than the computer, the user wins. If the computer has answered more questions correctly, the robot wins. If there is a tie at the end of five rounds, there is a bonus round that gives only the user a question, a correct answer resulting in the user winning the game.
 
-When the page is loaded, the game is covered my a mostly opaque cover that explains the rules and asks the user for their username. The username must be between one and six characters long, and the input field is validated. If the username is not present, or if it is longer than six characters, and alert is displayed. When the username is validated, the cover is removed. The input username is displayed with the user's score in the game. This also gives the javascript time to retrieve the questions from the database as an .api, which happens asynchronously.
+[Nefarious Robot](https://wsmorrison.github.io/Robot_Quiz/)
 
-At the beginning of the round, a question is displayed for the user. The art reflects that it is the user's turn and the image is displayed to the left of the question. The four multiple choice answers are displayed as buttons below the question, and an answer submission button is displayed below the answers. When the user selects an answer, the button color is changed. The user can change their mind, and the button color for the initially selected answer will return to look unselected, and the newly selected answer will look selected. The user can then click the submit button when they are ready, and the answer will be checked. If the user clicks the submit button before they have selected an answer, an alert is displayed.
+## Features and logic 
 
-When the answer is submitted, a cover is displayed over the answers. If the user got the question right, the text indicates that the question was right. If the user is wrong, the text indicates which answer was given and which one was correct. There is a button to advance to the next question, which removes the cover and changes the question and player.
+### Page Load
+    On page load, the game is covered with a mostly opaque cover.
+        -Cover explains the rules.
+        -Cover contains an input for the username, and a submission button.
+            -Username input is validated to make sure the username is between one and six characters long.
+            -If username is not present, or if it is too long, an alert is displayed.
+            -If the username is accepted, the cover is removed. 
+            -Username is displayed in the score area for the duration of the game.
+        -This cover and username retrieval also gives JavaScript time to asynchronously retrieve the questions from the Open Trivia Database and display them. 
+    
+    At the beginning of the round, a question is displayed for the user.
+        -The image reflects that it is the user's turn.
+        -On larger screens, the position of the image is to the left of the question for the user.
+        -A question is retrieved from the object imported by the Open Trivia Database api.
+        -The four mulitple choice answerss are displayed below the image and the question.
+            -The answers, including the correct one, are displayed in random order.
+            -When the user selectes an answer by clicking on it, the answer button colors change.
+            -If the user changes their mind and selects a different answer, the colors change to reflect the changed choice.
+        -The answer is submitted by clicking a button below the multiple choices answers.
+            -If the user has not chosen an answer, and alert is displayed.
+            -If an answer has been submitted, a cover is displayed over the answers.
+                -If the correct answer was selected, the cover indicates as much.
+                -If the incorrect answer was selected, the cover indicates the selected answer, the correct answer, and that the answer was wrong.
+                -The cover has a button to advance to the next question, and remove the cover.
+                
+    In the second half of the round, a question is displayed for the robot.
+        -The image reflects it is the robot's turn.
+        -On larger screens, the position of the image is to right of the question for the robot.
+        -A question is retrieved from the object imported by the Open Trivia Database api.
+        -The four multiple choice answers are displayed below the image and question.
+            -The answers, including the correct one, are displayed in random order.
+            -The answers are greyed out, and the answer buttons are disabled.
+            -The submit button is greyed out and disabled at the start of the robot's turn.
+                -A timer counts down until the robot's has "decided" on its answer.
+                -The submit button becomes active when the countdown completes.
+            -If the user clicks the submit button, a cover is displayed over the answers.
+                -The cover displays whether the robot got the answer right or wrong.
+                    -The robot has a four out of five chance to get the question correct.
+                    -If the answer is right, the cover shows the right answer.
+                    -If the answer is wrong, the cover shows the wrong answer the robot "selected" and the right answer.
+                -The cover has a button to advance to the next question, and remove the cover.
+    
+    The score is updated after each question, according to whether the they were answered correctly or not.
+    
+    The game decides if there is a winner or if a bonus question is required to decide the winner.
+        -At the end of five rounds, the game compares the scores.
+        -If the scores are the same, the game advances to a bonus question for the user only.
+            -Bonus question is the same format as previous questions.
+            -If the bonus question is right, the user wins, and if the question is wrong, the robot wins.
+        -If the scores are different, the winner is calculated.
+            -If the user score is higher, the user wins. 
+                -The text in the question position indicates the user won.
+                -The image and text display in the correct orientation.
+            -If the robot score is higher, the robot wins.
+                -The text in the question position indicates the robot won.
+                -The image and text display the correct orientation.
+    
+    When the game ends, a play-again cover appears and asks the user if they would like to play the game again.
+        -If the user selects yes, the scores are reset, the username conveys, and the game loads new questions.
+        -If the user selects no, the game opens a new tab to a Google search page.
 
-In the second half of the round, a question is displayed for the robot. The art shows the robot, and the image is displayed to the right of the question. The multiple choice questions are displayed, but are greyed out and disabled. The answer submit button is grayed out and disabled while the robot calculates it's answer, and a timer counts down from 5. Once the robot is ready, the question buttons remain disabled but the submit button is selectable. This gives the user an opportunity to read the question and make a guess to themselves, before the robot makes its selection, but also gives the game the interest of the robot having to "think" about its decision. The robot is given about a four in five chance to get the question right. When the user selects to submit the robot's answer, the answer cover is shown and display's wether the robot got the answer right or wrong, displaying the correct answer if right and the wrong and correct answer if wrong. The user can click the advance button to move to the next question and next round.
+    The footer contains a social media link to an Instagram account, where players can get to know their robot opponents. The link opens a new tab.
 
-At the end of five rounds, the game compares the scores. If the user has more correct answers than the robot, the user is declared the winner. If the robot has more correct answers, the robot is declared the winner. If there is a tie, the game advances to a bonus round where only the user gets a question. If the user gets this question right, the user is the winner. If the user gets the question wrong, the robot is the winner.
+## Testing
 
-When there is a winner, the text in the question area declares the winner. The art reflects the winner and the positioning left to right remains consistent with gameplay. A cover is displayed over the answer area on the page, and the user is asked if they would like to play again. If the user clicks the yes button, the game retrieves new questions from the database, keeps the username, resets the scores to zero, and displays the beginning of round one of a new game. Gameplay proceeds as before. If the user selects no, the game opens a new browser tab to a Google search funtion.
-
-The footer contains a social media link to an Instagram account, where players can get to know their robot opponents. The link opens a new tab.
+    -Confirmed that the site is intuitive and works properly by having a handful of testers interact with the site on different devices, in different places, and with different use cases.
+    -Confirmed that the wesbite works, looks good, and maintains clarity and functionality on different sized devices and at different sizes by using Chrome developer tools, as well as using the site on multiple devices.
+    -
 
 Bug fixes:
     -Changed the name of the div id="play-again" to "play-again-cover" for consistency in the html and css code, but not in js, which made the game not advance past final screen.
