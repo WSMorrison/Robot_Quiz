@@ -219,9 +219,10 @@ body {
     opacity:0.95;
     visibility: hidden;
     background-color: rgba(var(--background-color), 0.95);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     position: fixed;
     top: 51rem;
+    font-size: 2rem;
     height: 26rem;
     width: 30rem; 
     z-index:100;
@@ -230,7 +231,7 @@ body {
 }
 
 #answer-showoff {
-    height: 10rem;
+    height: 15rem;
     width: 20rem;
     text-align: center;
 }
@@ -240,7 +241,7 @@ body {
     visibility: hidden;
     background-color: rgba(var(--background-color), 0.95);
     backdrop-filter: blur(5px);
-    font-size: 2rem;
+    font-size: 3rem;
     position: fixed;
     top: 61rem;
     height: 30rem;
