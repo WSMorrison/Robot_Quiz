@@ -61,8 +61,8 @@
                             <p>If tied after five rounds, you get a make-it, take-it question.</p>
                         </div>
                         <div id="username-form">
-                            <input type="text" id="username" name="username" placeholder="What's your name?">
-                            <button id="user-name-button" type="button">Let's go!</button>
+                            <input type="text" id="username" class="journeyman-button" name="username" placeholder="What's your name?">
+                            <button id="user-name-button" class="journeyman-button" type="button">Let's go!</button>
                             <p id="username-ruleset">Username must be 6 characters or less.</p>
                         </div>
                     </div>
@@ -82,11 +82,11 @@
                     </div>
                     <div id="answer-display">
 
-<!-- Cover div to show correct answer -->
+<!-- Cover div that shows the correct answer -->
                         <div id="answer-cover" class="center">
                             <div id="answer-showoff"></div>
                             <div>
-                                <button id="answer-cover-remove" type="button">Button</button>
+                                <button id="answer-cover-remove" class="journeyman-button" type="button">Button</button>
                             </div>
                         </div>
 
@@ -97,14 +97,14 @@
                             </div>
                             <div id="play-again-buttons">
                                 <div>
-                                    <button id="play-again-yes" type="button" onclick="newGame()">Yes</button>
+                                    <button id="play-again-yes" class="journeyman-button" type="button" onclick="newGame()">Yes</button>
                                 </div>
                                 <div>
                                     <a class="journeyman-button" href="https://bit.ly/3gk6jPP" target="_blank" rel="noopener" aria-label="Link out to a new tab, showing a Google search page.">No</a>
-                                    <!-- <button id="play-again-no" type="button" onclick="window.open('https://bit.ly/3gk6jPP', '_blank', 'noopener') value="Go to Google" aria-text="Link out of game to Google home page, opens in the same tab.">No</button>-->
                                 </div>
                             </div>
                         </div>
+
                         <button id="answer-one" class="answer" type="button">Answer1</button>
                         <button id="answer-two" class="answer" type="button">Answer2</button>
                         <button id="answer-three" class="answer" type="button">Answer3</button>
@@ -117,7 +117,7 @@
                         <p id="prompt">Ready! </p>
                     </div>
                     <div id="button-box">
-                        <button id="button-check" class="center" type="button">Submit for Judgement</button>
+                        <button id="button-check" class="center, craftsman-button" type="button">Submit for Judgement</button>
                     </div>
                 </div>
             </section>
