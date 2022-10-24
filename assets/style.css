@@ -37,6 +37,10 @@ body {
     min-height: calc(100vh - 5rem);
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .center {
     margin: auto;
     display: flex;
@@ -181,7 +185,7 @@ body {
 }
 
 #player-picture {
-    background: url(.//images/logo-robot.png);
+    background: url(.//images/player-robot.png);
     background-position: center;
     background-size: cover;
     height: 15rem;
@@ -215,6 +219,11 @@ body {
     font-family: 'Sniglet', serif;
     color: rgb(var(--text-border-color));
     border-radius: 4px;
+}
+
+#button-check {
+    font-family: 'Sniglet', serif;
+    color: rgb(var(--text-border-color));
 }
 
 #answer-cover {

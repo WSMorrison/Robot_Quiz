@@ -6,9 +6,9 @@ The trivia game is up to eleven questions long, giving the human user and the co
 
 [Nefarious Robot](https://wsmorrison.github.io/Robot_Quiz/)
 
-## Features and logic 
+# Features and logic 
 
-### Page Load
+## Page Load
     On page load, the game is covered with a mostly opaque cover.
         -Cover explains the rules.
         -Cover contains an input for the username, and a submission button.
@@ -18,6 +18,7 @@ The trivia game is up to eleven questions long, giving the human user and the co
             -Username is displayed in the score area for the duration of the game.
         -This cover and username retrieval also gives JavaScript time to asynchronously retrieve the questions from the Open Trivia Database and display them. 
     
+## Rounds of Play
     At the beginning of the round, a question is displayed for the user.
         -The image reflects that it is the user's turn.
         -On larger screens, the position of the image is to the left of the question for the user.
@@ -51,7 +52,8 @@ The trivia game is up to eleven questions long, giving the human user and the co
                 -The cover has a button to advance to the next question, and remove the cover.
     
     The score is updated after each question, according to whether the they were answered correctly or not.
-    
+
+## Winning or Losing    
     The game decides if there is a winner or if a bonus question is required to decide the winner.
         -At the end of five rounds, the game compares the scores.
         -If the scores are the same, the game advances to a bonus question for the user only.
@@ -71,17 +73,24 @@ The trivia game is up to eleven questions long, giving the human user and the co
 
     The footer contains a social media link to an Instagram account, where players can get to know their robot opponents. The link opens a new tab.
 
-## Testing
+# Testing
 
     -Confirmed that the site is intuitive and works properly by having a handful of testers interact with the site on different devices, in different places, and with different use cases.
     -Confirmed that the wesbite works, looks good, and maintains clarity and functionality on different sized devices and at different sizes by using Chrome developer tools, as well as using the site on multiple devices.
-    -
+    -HTML passes through W3Schools validator without errors.
+    -CSS passes through W3Schools validator without errors other than errors returned for using a CSS variable in an RGB field.
+    -Javascript passes through JSHint validator with only "let" and "async function" JavaScript version suggestions, plus calling an unused function which is called in HTML.
+    -Chrome devtools Lighthouse scores are good.
 
-Bug fixes:
-    -Changed the name of the div id="play-again" to "play-again-cover" for consistency in the html and css code, but not in js, which made the game not advance past final screen.
-    -The footer was fixed at the bottom of thes screen which allowed the footer to cover the qustions and submission button on smaller screens. Wrapped the whole site other than the footer in a div, and subtracted the height of the footer from it's minimum height. This div then takes up no less than the full screen, minus the footer, which forces the footer to the bottom of a large screen, but allows all the elements to display properly if the screen is small.
-    -When it was the robot's turn, there was a one second window where the user could sneak and click the "answer submit" button, before the robot was ready to answer. If clicked early, this would effect game play by obscuring the user's answer buttons and having the user have to wait for the countdown time.
-    -Sometimes there are six rounds even if the user is winning in the fifth round. Unresolved.
+## Bug Fixes
+    -Game did not advance past the final screen. Troubleshooting found that the name of the div id="play-again" had been changed to "play-again-cover" for consistency in the HTML and CSS code, but not in JavaScropt. Corrected the error.
+    -The footer was fixed at the bottom of thes screen which allowed the footer to cover the qustions and submission button on smaller screens. Solved this issue by adding a new div that included the whole site other than the footer. This div's height is set to a minimum of the view height minus the height of the footer. This div then takes up no less than the full screen, minus the footer, which forces the footer to the bottom of a large screen, but allows all the elements to display properly if the screen is smaller.
+    -Found a timing issue with the robot's turn which allowed the user to click "Submit for Judgement" before the countdown was complete. This effected the gameplay by disabling the user's answer buttons for the duration of the countdown time. Solution was to change the sequence in JavaScript that disabled the button, so that the button was disabled immediately when the player turn changed and not one second into the function.
+    -Found that on very small screens, the height of the answer-cover and play-again-cover made it impossible for the user to scroll down to advance the turn and round, or to choose to play again or choose not to at the end of the game. Used a max-height media query to keep all the buttons in the viewport on very small screens.
+    -Found that on iPhones, the text in the answer buttons and "Submit for Judgement" buttons are blue and were not styled correctly. Troubleshooting found that the styling from the body styling CSS carried into Chrome but not Safari. Specified text styling for specific buttons resolved the issue.
+
+## Unfixed Bugs
+    -One tester indicated that during gameplay, the game advanced past the tiebreaker and allowed the robot to accrue more points that the max possible five. Though investigation has not reproduced this problem exactly, it was found that when the answer-cover or play-again-cover divs were displayed, if it were possible to click the "Submit for Judgement" button, the score would increase but the turn, round, and game would not. This issue was addressed by changing the size of the answer-cover and play-again-cover divs, and the problem has not has not recurred.
 
 Questions are from Open Trivia Database, https://www.opentdb.com.
 FavIcon is from Iconfinder.com, https://www.iconfinder.com/icons/2120162/astronaut_astronomy_robot_science_space_icon.
