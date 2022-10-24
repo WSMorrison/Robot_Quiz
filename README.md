@@ -105,7 +105,7 @@ The footer contains a social media link to an Instagram account, where players c
 
 ## Bug Fixes
 -Game did not advance past the final screen. Troubleshooting found that the name of the div id="play-again" had been changed to "play-again-cover" for consistency in the HTML and CSS code, but not in JavaScropt. Corrected the error.<br>
--The footer was fixed at the bottom of thes screen which allowed the footer to cover the qustions and submission button on smaller screens. Solved this issue by adding a new div that included the whole site other than the footer. This div's height is set to a minimum of the view height minus the height of the footer. This div then takes up no less than the full screen, minus the footer, which forces the footer to the bottom of a large screen, but allows all the elements to display properly if the screen is smaller.<br>
+-The footer was fixed at the bottom of thes screen which allowed the footer to cover the qustions and submission button on smaller screens. Solved this issue by adding a new div that included the whole site except the footer. This div's height is set to a minimum of the view height minus the height of the footer. This div then takes up no less than the full screen, minus the footer, which forces the footer to the bottom of a large screen, but allows all the elements to display properly if the screen is smaller.<br>
 -Found a timing issue with the robot's turn which allowed the user to click "Submit for Judgement" before the countdown was complete. This effected the gameplay by disabling the user's answer buttons for the duration of the countdown time. Solution was to change the sequence in JavaScript that disabled the button, so that the button was disabled immediately when the player turn changed instead of one second into the function.<br>
 -Found that on very small screens, the height of the answer-cover and play-again-cover divs made it impossible for the user to scroll down to advance the turn and round, or to choose to play again or choose not to at the end of the game. Used a max-height media query to keep all the buttons in the viewport on very small screens.<br>
 -Found that on iPhones, the text in the answer buttons and "Submit for Judgement" buttons were blue and were not styled correctly. Troubleshooting found that the styling from the body styling CSS carried into Chrome but not Safari. Specified text styling for specific buttons resolved the issue.<br>
@@ -115,16 +115,16 @@ The footer contains a social media link to an Instagram account, where players c
 
 ## Deployment
 -The page is deployed on Github pages using the following procedure:<br>
-&emsp;-In the associated Github repository, I navigated to settings tab.<br>
-&emsp;-In the settings tab, I navigated to the pages link in the lefthand navigation bar.<br>
-&emsp;-I deployed the Master Branch as the source.<br>
+&emsp;-In the associated Github repository, navigated to settings tab.<br>
+&emsp;-In the settings tab, navigated to the pages link in the lefthand navigation bar.<br>
+&emsp;-Deployed the Master Branch as the source.<br>
 &emsp;-Github provided the link to the completed website.<br>
 -The deployed site can be found at this link: https://wsmorrison.github.io/Robot_Quiz/<br>
 
 ## Forking and Cloning
 -Using GitHub, the website can be cloned, or copied by forking.<br>
 &emsp;-To clone the code, a user can navigate to the file menu in the GitHub, and select clone repository. Then they can select this repository and clone it to their own GitHub.<br>
-&emsp;-To fork the document tree, a user will need to log into GitHub and locate the repository for the website. In the repository, a user can click the fork button, and copy the repository to their own GitHub account.<br>
+&emsp;-To fork the document tree, a user will need to locate the repository for the website. In the repository, a user can click the fork button, and copy the repository to their own GitHub account.<br>
 
 # Credits
 
@@ -137,8 +137,8 @@ The footer contains a social media link to an Instagram account, where players c
 &emsp;-Libre Barcode 39 Text for the barcode in the footer, [Libre Barcode 39 Text](https://fonts.google.com/specimen/Libre+Barcode+39+Text?query=barcode)<br>
 -Font-based logos for Instagram and emoji used in buttons are from Font Awesome.<br>
 &emsp;-Instagram logo used in footer, [Instagram Logo](https://fontawesome.com/icons/instagram?f=brands)<br>
-&emsp;-Happy face used in advance button after a correct answer, [Smiley face](https://fontawesome.com/icons/face-smile?s=regular&f=classic)<br>
-&emsp;-Sad face used in advance button after an incorrect answer, [Sad face](https://fontawesome.com/icons/face-sad-tear?f=classic&s=regular)<br>
+&emsp;-Happy face used in advance button after a correct user answer, [Smiley face](https://fontawesome.com/icons/face-smile?s=regular&f=classic)<br>
+&emsp;-Sad face used in advance button after an incorrect user answer, [Sad face](https://fontawesome.com/icons/face-sad-tear?f=classic&s=regular)<br>
 &emsp;-Impassive robot face used in advance button after any robot answer, [Robot face](https://fontawesome.com/icons/robot?s=solid&f=classic)<br>
 -Readme.md image showing webpage across different devices from Am I Responsive?, [Am I Responsive](https://ui.dev/amiresponsive)<br>
 -Readme.md image showing Google developer tools Lighthouse validator result is from Google Chrome browser.<br>
