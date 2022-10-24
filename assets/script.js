@@ -325,14 +325,14 @@ function winLoseOrTie() {
 function userWins() {
     player = 'User';
     changeDiv();
-    let userWinner = document.getElementById('winner-picture');
+    let userWinner = document.getElementById('player-picture');
     userWinner.style.background = 'url(.//assets/images/logo-user.png)'; // NEED NEW ART
     userWinner.style.backgroundPosition = 'center';
     userWinner.style.backgroundSize = 'cover';
     let outcomeNotice = document.getElementById('outcome-notice');
     outcomeNotice.innerHTML = ('You win!');
     let outcomeMessage = document.getElementById('outcome-message');
-    outcomeMessage.innterHTML = ('You have defied the silicon brained overlords!')
+    outcomeMessage.innerHTML = ('You have defied the silicon brained overlords!')
     document.getElementById('play-again-cover').style.visibility = ('visible');
 }
 
@@ -346,7 +346,7 @@ function robotWins() {
     let outcomeNotice = document.getElementById('outcome-notice');
     outcomeNotice.innerHTML = ('You lose!');
     let outcomeMessage = document.getElementById('outcome-message');
-    outcomeMessage.innterHTML = ("You must now sit in the robofridge and cool the robot's food");
+    outcomeMessage.innerHTML = ("You must now sit in the robofridge and cool the robot's food");
     document.getElementById('play-again-cover').style.visibility = ('visible');
 }
 
