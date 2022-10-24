@@ -230,10 +230,11 @@ body {
     z-index:100;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 #answer-showoff {
-    height: 15rem;
+    height: 5rem;
     width: 20rem;
     text-align: center;
 }
@@ -383,5 +384,22 @@ footer {
         height: 15rem;
         width: 75rem;
         top: 61rem;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    #game-cover {
+        height: 100%;
+        top:0;
+    }
+
+    #answer-cover {
+        top: 25rem;
+        height: 20rem;
+    }
+
+    #play-again-cover {
+        height: 100%;
+        top: 25rem;
     }
 }
