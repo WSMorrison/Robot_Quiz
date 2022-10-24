@@ -326,7 +326,7 @@ function userWins() {
     player = 'User';
     changeDiv();
     let userWinner = document.getElementById('player-picture');
-    userWinner.style.background = 'url(.//assets/images/logo-user.png)'; // NEED NEW ART
+    userWinner.style.background = 'url(.//assets/images/winner-user.png)'; // NEED NEW ART
     userWinner.style.backgroundPosition = 'center';
     userWinner.style.backgroundSize = 'cover';
     let questionDisplay = document.getElementById('question');
@@ -338,7 +338,7 @@ function robotWins() {
     player = 'Robot';
     changeDiv();
     let robotWinner = document.getElementById('player-picture');
-    robotWinner.style.background = 'url(.//assets/images/logo-robot.png)'; // NEED NEW ART
+    robotWinner.style.background = 'url(.//assets/images/winner-robot.png)'; // NEED NEW ART
     robotWinner.style.backgroundPosition = 'center';
     robotWinner.style.backgroundSize = 'cover';
     let questionDisplay = document.getElementById('question');
