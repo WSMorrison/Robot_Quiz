@@ -329,10 +329,8 @@ function userWins() {
     userWinner.style.background = 'url(.//assets/images/logo-user.png)'; // NEED NEW ART
     userWinner.style.backgroundPosition = 'center';
     userWinner.style.backgroundSize = 'cover';
-    let outcomeNotice = document.getElementById('outcome-notice');
-    outcomeNotice.innerHTML = ('You win!');
-    let outcomeMessage = document.getElementById('outcome-message');
-    outcomeMessage.innerHTML = ('You have defied the silicon brained overlords!')
+    let questionDisplay = document.getElementById('question');
+    questionDisplay.innerHTML = ('Congratulations! You have won and saved us from the malevolent robot overlords!');
     document.getElementById('play-again-cover').style.visibility = ('visible');
 }
 
@@ -343,10 +341,8 @@ function robotWins() {
     robotWinner.style.background = 'url(.//assets/images/logo-robot.png)'; // NEED NEW ART
     robotWinner.style.backgroundPosition = 'center';
     robotWinner.style.backgroundSize = 'cover';
-    let outcomeNotice = document.getElementById('outcome-notice');
-    outcomeNotice.innerHTML = ('You lose!');
-    let outcomeMessage = document.getElementById('outcome-message');
-    outcomeMessage.innerHTML = ("You must now sit in the robofridge and cool the robot's food");
+    let questionDisplay = document.getElementById('question');
+    questionDisplay.innerHTML = ('The robot has won! You will now sit inside its refrigerator and cool the robofood');
     document.getElementById('play-again-cover').style.visibility = ('visible');
 }
 
