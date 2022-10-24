@@ -325,12 +325,14 @@ function winLoseOrTie() {
 function userWins() {
     player = 'User';
     changeDiv();
-    let userWinner = document.getElementById('player-picture');
+    let userWinner = document.getElementById('winner-picture');
     userWinner.style.background = 'url(.//assets/images/logo-user.png)'; // NEED NEW ART
     userWinner.style.backgroundPosition = 'center';
     userWinner.style.backgroundSize = 'cover';
-    let questionDisplay = document.getElementById('question');
-    questionDisplay.innerHTML = ('Congratulations! You have won and saved us from the malevolent robot overlords!');
+    let outcomeNotice = document.getElementById('outcome-notice');
+    outcomeNotice.innerHTML = ('You win!');
+    let outcomeMessage = document.getElementById('outcome-message');
+    outcomeMessage.innterHTML = ('You have defied the silicon brained overlords!')
     document.getElementById('play-again-cover').style.visibility = ('visible');
 }
 
@@ -341,8 +343,10 @@ function robotWins() {
     robotWinner.style.background = 'url(.//assets/images/logo-robot.png)'; // NEED NEW ART
     robotWinner.style.backgroundPosition = 'center';
     robotWinner.style.backgroundSize = 'cover';
-    let questionDisplay = document.getElementById('question');
-    questionDisplay.innerHTML = ('The robot has won! You will now sit inside its refrigerator and cool the robofood');
+    let outcomeNotice = document.getElementById('outcome-notice');
+    outcomeNotice.innerHTML = ('You lose!');
+    let outcomeMessage = document.getElementById('outcome-message');
+    outcomeMessage.innterHTML = ("You must now sit in the robofridge and cool the robot's food");
     document.getElementById('play-again-cover').style.visibility = ('visible');
 }
 
