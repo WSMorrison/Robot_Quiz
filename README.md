@@ -112,8 +112,20 @@ The footer contains a social media link to an Instagram account, where players c
 
 ## Unfixed Bugs
 -One tester indicated that during gameplay, the game advanced past the tiebreaker and allowed the robot to accrue more points that the max possible five. Though investigation has not reproduced this problem exactly, it was found that when the answer-cover or play-again-cover divs were displayed, if it were possible to click the "Submit for Judgement" button, the score would increase but the turn, round, and game would not. This issue was addressed by changing the size of the answer-cover and play-again-cover divs, and the problem has not has not recurred.<br>
-<br>
-<br>
+
+## Deployment
+-The page is deployed on Github pages using the following procedure:<br>
+&emsp;-In the associated Github repository, I navigated to settings tab.<br>
+&emsp;-In the settings tab, I navigated to the pages link in the lefthand navigation bar.<br>
+&emsp;-I deployed the Master Branch as the source.<br>
+&emsp;-Github provided the link to the completed website.<br>
+-The deployed site can be found at this link: https://wsmorrison.github.io/Robot_Quiz/<br>
+
+## Forking and Cloning
+-Using GitHub, the website can be cloned, or copied by forking.<br>
+-To clone the code, a user can navigate to the file menu in the GitHub, and select clone repository. Then they can select this repository and clone it to their own GitHub.<br>
+-To fork the document tree, a user will need to log into GitHub and locate the repository for the website. In the repository, a user can click the fork button, and copy the repository to their own GitHub account.<br>
+
 # Credits
 
 -The Gitpod template provided by Code Institute.<br>
