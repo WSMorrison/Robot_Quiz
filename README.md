@@ -11,10 +11,10 @@ The trivia game is up to eleven questions long, giving the human user and the co
 
 ## Page Load
 On page load, the game is covered with a mostly opaque cover.<br>
-&emsp;-Cover explains the rules.<br>
+&emsp;-The cover explains the rules.<br>
 ![Page loaded with cover div asking for username.](./assets/images/readme-images/cover-div.png)<br>
 <br>
-&emsp;-Cover contains an input for the username, and a submission button.<br>
+&emsp;-The cover contains an input for the username, and a submission button.<br>
 &emsp;&emsp;-Username input is validated to make sure the username is between one and six characters long.<br>
 &emsp;&emsp;-If username is not present, or if it is too long, an alert is displayed.<br>
 ![Validator has caught a too long username.](./assets/images/readme-images/validator-catch.png)<br>
@@ -29,17 +29,17 @@ At the beginning of the round, a question is displayed for the user.<br>
 &emsp;-The image reflects that it is the user's turn.<br>
 &emsp;-On larger screens, the position of the image is to the left of the question for the user.<br>
 &emsp;-A question is retrieved from the object imported by the Open Trivia Database api.<br>
-&emsp;-The four mulitple choice answerss are displayed below the image and the question.<br>
+&emsp;-The four mulitple choice answers are displayed below the image and the question.<br>
 &emsp;&emsp;-The answers, including the correct one, are displayed in random order.<br>
 ![Round one, question one. The questions and answers are displayed for the user to play.](./assets/images/readme-images/round-one-user.png)<br>
 <br>
-&emsp;&emsp;-When the user selectes an answer by clicking on it, the answer button colors change.<br>
+&emsp;&emsp;-When the user selects an answer by clicking on it, the answer button colors change.<br>
 &emsp;&emsp;-If the user changes their mind and selects a different answer, the colors change to reflect the changed choice.<br>
 &emsp;-The answer is submitted by clicking a button below the multiple choices answers.<br>
-&emsp;&emsp;-If the user has not chosen an answer, and alert is displayed.<br>
+&emsp;&emsp;-If the user has not chosen an answer, an alert is displayed.<br>
 &emsp;&emsp;-If an answer has been submitted, a cover is displayed over the answers.<br>
 &emsp;&emsp;&emsp;-If the correct answer was selected, the cover indicates as much.<br>
-&emsp;&emsp;&emsp;-If the incorrect answer was selected, the cover indicates the selected answer, the correct answer, and that the answer was wrong.<br>
+&emsp;&emsp;&emsp;-If the incorrect answer was selected, the cover indicates the correct answer, and that the answer was wrong.<br>
 &emsp;&emsp;&emsp;-The cover has a button to advance to the next question, and remove the cover.<br>
 ![The user has selected an incorret answer.](./assets/images/readme-images/round-one-wrong.png)<br>
 <br>
@@ -52,7 +52,7 @@ In the second half of the round, a question is displayed for the robot.<br>
 &emsp;&emsp;-The answers, including the correct one, are displayed in random order.<br>
 &emsp;&emsp;-The answers are greyed out, and the answer buttons are disabled.<br>
 &emsp;&emsp;-The submit button is greyed out and disabled at the start of the robot's turn.<br>
-&emsp;&emsp;&emsp;-A timer counts down until the robot's has "decided" on its answer.<br>
+&emsp;&emsp;&emsp;-A timer counts down until the robot has "decided" on its answer.<br>
 ![The robot is calculating the answer for its turn.](./assets/images/readme-images/round-one-robot-calculating.png)<br>
 <br>
 &emsp;&emsp;&emsp;-The submit button becomes active when the countdown completes.<br>
@@ -60,19 +60,19 @@ In the second half of the round, a question is displayed for the robot.<br>
 <br>
 &emsp;&emsp;-If the user clicks the submit button, a cover is displayed over the answers.<br>
 &emsp;&emsp;&emsp;-The cover displays whether the robot got the answer right or wrong.<br>
-&emsp;&emsp;&emsp;&emsp;-The robot has a four out of five chance to get the question correct.<br>
+&emsp;&emsp;&emsp;&emsp;-The robot has an 80% chance of getting the question correct.<br>
 &emsp;&emsp;&emsp;&emsp;-If the answer is right, the cover shows the right answer.<br>
-&emsp;&emsp;&emsp;&emsp;-If the answer is wrong, the cover shows the wrong answer the robot "selected" and the right answer.<br>
+&emsp;&emsp;&emsp;&emsp;-If the answer is wrong, the cover shows the wrong answer the robot "selected," and the right answer.<br>
 &emsp;&emsp;&emsp;-The cover has a button to advance to the next question, and remove the cover.<br>
 
-The score is updated after each question, according to whether the they were answered correctly or not.<br>
+The score is updated after each question, according to whether the quesitons were answered correctly or not.<br>
 
 ## Winning or Losing    
 The game decides if there is a winner or if a bonus question is required to decide the winner.<br>
 &emsp;-At the end of five rounds, the game compares the scores.<br>
 &emsp;-If the scores are the same, the game advances to a bonus question for the user only.<br>
-&emsp;&emsp;-Bonus question is the same format as previous questions.<br>
-&emsp;&emsp;-If the bonus question is right, the user wins, and if the question is wrong, the robot wins.<br>
+&emsp;&emsp;-The bonus question is the same format as previous questions.<br>
+&emsp;&emsp;-If the bonus question is answered correctly, the user wins. If the question is answered incorrectly, the robot wins.<br>
 &emsp;-If the scores are different, the winner is calculated.<br>
 &emsp;&emsp;-If the user score is higher, the user wins.<br>
 &emsp;&emsp;&emsp;-The text in the question position indicates the user won.<br>
@@ -99,19 +99,19 @@ The footer contains a social media link to an Instagram account, where players c
 -HTML passes through W3Schools validator without errors.<br>
 -CSS passes through W3Schools validator without errors other than errors returned for using a CSS variable in an RGB field.<br>
 -Javascript passes through JSHint validator with only "let" and "async function" JavaScript version suggestions, plus calling an unused function which is called in HTML.<br>
--Chrome devtools Lighthouse scores are good.<br>
+-Chrome developer tools Lighthouse scores are good.<br>
 ![Lighthouse scores.](./assets/images/readme-images/lighthouse-score.png)<br>
 <br>
 
 ## Bug Fixes
 -Game did not advance past the final screen. Troubleshooting found that the name of the div id="play-again" had been changed to "play-again-cover" for consistency in the HTML and CSS code, but not in JavaScropt. Corrected the error.<br>
 -The footer was fixed at the bottom of thes screen which allowed the footer to cover the qustions and submission button on smaller screens. Solved this issue by adding a new div that included the whole site other than the footer. This div's height is set to a minimum of the view height minus the height of the footer. This div then takes up no less than the full screen, minus the footer, which forces the footer to the bottom of a large screen, but allows all the elements to display properly if the screen is smaller.<br>
--Found a timing issue with the robot's turn which allowed the user to click "Submit for Judgement" before the countdown was complete. This effected the gameplay by disabling the user's answer buttons for the duration of the countdown time. Solution was to change the sequence in JavaScript that disabled the button, so that the button was disabled immediately when the player turn changed and not one second into the function.<br>
--Found that on very small screens, the height of the answer-cover and play-again-cover made it impossible for the user to scroll down to advance the turn and round, or to choose to play again or choose not to at the end of the game. Used a max-height media query to keep all the buttons in the viewport on very small screens.<br>
--Found that on iPhones, the text in the answer buttons and "Submit for Judgement" buttons are blue and were not styled correctly. Troubleshooting found that the styling from the body styling CSS carried into Chrome but not Safari. Specified text styling for specific buttons resolved the issue.<br>
+-Found a timing issue with the robot's turn which allowed the user to click "Submit for Judgement" before the countdown was complete. This effected the gameplay by disabling the user's answer buttons for the duration of the countdown time. Solution was to change the sequence in JavaScript that disabled the button, so that the button was disabled immediately when the player turn changed instead of one second into the function.<br>
+-Found that on very small screens, the height of the answer-cover and play-again-cover divs made it impossible for the user to scroll down to advance the turn and round, or to choose to play again or choose not to at the end of the game. Used a max-height media query to keep all the buttons in the viewport on very small screens.<br>
+-Found that on iPhones, the text in the answer buttons and "Submit for Judgement" buttons were blue and were not styled correctly. Troubleshooting found that the styling from the body styling CSS carried into Chrome but not Safari. Specified text styling for specific buttons resolved the issue.<br>
 
 ## Unfixed Bugs
--One tester indicated that during gameplay, the game advanced past the tiebreaker and allowed the robot to accrue more points that the max possible five. Though investigation has not reproduced this problem exactly, it was found that when the answer-cover or play-again-cover divs were displayed, if it were possible to click the "Submit for Judgement" button, the score would increase but the turn, round, and game would not. This issue was addressed by changing the size of the answer-cover and play-again-cover divs, and the problem has not has not recurred.<br>
+-One tester indicated that during gameplay, the game advanced past the tiebreaker and allowed the robot to accrue more points that the max possible five. Though investigation has not reproduced this problem exactly, it was found that when the answer-cover or play-again-cover divs were displayed, if it were possible to click the "Submit for Judgement" button, the score would increase but the turn, round, and game would not. This issue was addressed by changing the size of the answer-cover and play-again-cover divs, and the problem has not recurred.<br>
 
 ## Deployment
 -The page is deployed on Github pages using the following procedure:<br>
@@ -128,12 +128,12 @@ The footer contains a social media link to an Instagram account, where players c
 
 # Credits
 
--The Gitpod template provided by Code Institute.<br>
+-The Gitpod template was provided by Code Institute.<br>
 -Many pieces of code are inspired by Code Institute training, W3 schools resources, Stack Overflow forums, and other searchable online resources.<br>
 -The fonts used on this website are from Google Fonts.<br>
-&emsp;-Freckle Face for the header, from Google Fonts, [Freckle Face](https://fonts.google.com/specimen/Freckle+Face?query=Freckle+Face)<br>
-&emsp;-Gochi Hand for the section headings, from Google Fonts, [Gochi Hand](https://fonts.google.com/specimen/Gochi+Hand?query=Gochi+Hand)<br>
-&emsp;-Sniglet for the text, from Google Fonts, [Sniglet](https://fonts.google.com/specimen/Sniglet?query=Sniglet)<br>
+&emsp;-Freckle Face for the header, [Freckle Face](https://fonts.google.com/specimen/Freckle+Face?query=Freckle+Face)<br>
+&emsp;-Gochi Hand for the section headings, [Gochi Hand](https://fonts.google.com/specimen/Gochi+Hand?query=Gochi+Hand)<br>
+&emsp;-Sniglet for the text, [Sniglet](https://fonts.google.com/specimen/Sniglet?query=Sniglet)<br>
 &emsp;-Libre Barcode 39 Text for the barcode in the footer, [Libre Barcode 39 Text](https://fonts.google.com/specimen/Libre+Barcode+39+Text?query=barcode)<br>
 -Font-based logos for Instagram and emoji used in buttons are from Font Awesome.<br>
 &emsp;-Instagram logo used in footer, [Instagram Logo](https://fontawesome.com/icons/instagram?f=brands)<br>
