@@ -123,8 +123,8 @@ The footer contains a social media link to an Instagram account, where players c
 
 ## Forking and Cloning
 -Using GitHub, the website can be cloned, or copied by forking.<br>
--To clone the code, a user can navigate to the file menu in the GitHub, and select clone repository. Then they can select this repository and clone it to their own GitHub.<br>
--To fork the document tree, a user will need to log into GitHub and locate the repository for the website. In the repository, a user can click the fork button, and copy the repository to their own GitHub account.<br>
+&emsp;-To clone the code, a user can navigate to the file menu in the GitHub, and select clone repository. Then they can select this repository and clone it to their own GitHub.<br>
+&emsp;-To fork the document tree, a user will need to log into GitHub and locate the repository for the website. In the repository, a user can click the fork button, and copy the repository to their own GitHub account.<br>
 
 # Credits
 
