@@ -9,14 +9,14 @@ The trivia game is up to eleven questions long, giving the human user and the co
 # Features and logic 
 
 ## Page Load
-    On page load, the game is covered with a mostly opaque cover.
-        -Cover explains the rules.
-        -Cover contains an input for the username, and a submission button.
-            -Username input is validated to make sure the username is between one and six characters long.
-            -If username is not present, or if it is too long, an alert is displayed.
-            -If the username is accepted, the cover is removed. 
-            -Username is displayed in the score area for the duration of the game.
-        -This cover and username retrieval also gives JavaScript time to asynchronously retrieve the questions from the Open Trivia Database and display them. 
+On page load, the game is covered with a mostly opaque cover.<br>
+&emsp;-Cover explains the rules.<br>
+&emsp;-Cover contains an input for the username, and a submission button.<br>
+&emsp;&emsp;-Username input is validated to make sure the username is between one and six characters long.<br>
+&emsp;&emsp;-If username is not present, or if it is too long, an alert is displayed.<br>
+&emsp;&emsp;-If the username is accepted, the cover is removed.<br>
+&emsp;&emsp;-Username is displayed in the score area for the duration of the game.<br>
+&emsp;-This cover and username retrieval also gives JavaScript time to asynchronously retrieve the questions from the Open Trivia Database and display them.<br>
     
 ## Rounds of Play
     At the beginning of the round, a question is displayed for the user.
@@ -92,8 +92,23 @@ The trivia game is up to eleven questions long, giving the human user and the co
 ## Unfixed Bugs
     -One tester indicated that during gameplay, the game advanced past the tiebreaker and allowed the robot to accrue more points that the max possible five. Though investigation has not reproduced this problem exactly, it was found that when the answer-cover or play-again-cover divs were displayed, if it were possible to click the "Submit for Judgement" button, the score would increase but the turn, round, and game would not. This issue was addressed by changing the size of the answer-cover and play-again-cover divs, and the problem has not has not recurred.
 
-Questions are from Open Trivia Database, https://www.opentdb.com.
-FavIcon is from Iconfinder.com, https://www.iconfinder.com/icons/2120162/astronaut_astronomy_robot_science_space_icon.
-FavIcon code is from Code Institute, as described in the "Love Maths Walkthrough Project/Tidying Up/A Few Last Things..." lesson.
-Instagram icon, happy face emoji, sad face emoji, and robot face empoji are from Font Awesome.
-Images are hand drawn by developer.
+# Credits
+
+-The Gitpod template provided by Code Institute.<br>
+-Many pieces of code are inspired by Code Institute training, W3 schools resources, Stack Overflow forums, and other searchable online resources.<br>
+-The fonts used on this website are from Google Fonts.<br>
+&emsp;-Freckle Face for the header, from Google Fonts, [Freckle Face](https://fonts.google.com/specimen/Freckle+Face?query=Freckle+Face)<br>
+&emsp;-Gochi Hand for the section headings, from Google Fonts, [Gochi Hand](https://fonts.google.com/specimen/Gochi+Hand?query=Gochi+Hand)<br>
+&emsp;-Sniglet for the text, from Google Fonts, [Sniglet](https://fonts.google.com/specimen/Sniglet?query=Sniglet)<br>
+&emsp;-Libre Barcode 39 Text for the barcode in the footer, [Libre Barcode 39 Text](https://fonts.google.com/specimen/Libre+Barcode+39+Text?query=barcode)<br>
+-Font-based logos for Instagram and emoji used in buttons are from Font Awesome.<br>
+&emsp;-Instagram logo used in footer, [Instagram Logo](https://fontawesome.com/icons/instagram?f=brands)<br>
+&emsp;-Happy face used in advance button after a correct answer, [Smiley face](https://fontawesome.com/icons/face-smile?s=regular&f=classic)<br>
+&emsp;-Sad face used in advance button after an incorrect answer, [Sad face](https://fontawesome.com/icons/face-sad-tear?f=classic&s=regular)<br>
+&emsp;-Impassive robot face used in advance button after any robot answer, [Robot face](https://fontawesome.com/icons/robot?s=solid&f=classic)<br>
+-Readme.md image showing webpage across different devices from Am I Responsive?, [Am I Responsive](https://ui.dev/amiresponsive)<br>
+-Readme.md image showing Google developer tools Lighthouse validator result is from Google Chrome browser.<br>
+-Questions are from [Open Trivia Database](https://www.opentdb.com)<br>
+-FavIcon is from Iconfinder.com. [Astronaut, Astronomy, Robot Icon](https://www.iconfinder.com/icons/2120162/astronaut_astronomy_robot_science_space_icon)<br>
+-FavIcon code is from Code Institute, as described in the "Love Maths Walkthrough Project/Tidying Up/A Few Last Things..." lesson. [A Few Last Things...](https://learn<br>codeinstitute.net/courses/course-v1:CodeInstitute+LM101+2021_T1/courseware/2d651bf3f23e48aeb9b9218871912b2e/04d7bdb98119413991e2a31e9a291970/)<br>
+-Images were created by developer.<br>
