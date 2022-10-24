@@ -342,7 +342,7 @@ function robotWins() {
     robotWinner.style.backgroundPosition = 'center';
     robotWinner.style.backgroundSize = 'cover';
     let questionDisplay = document.getElementById('question');
-    questionDisplay.innerHTML = ('The robot has won! You will now sit inside its refrigerator and cool the robofood');
+    questionDisplay.innerHTML = ('The robot has won! You will now sit inside its refrigerator and cool the robofood.');
     document.getElementById('play-again-cover').style.visibility = ('visible');
 }
 
