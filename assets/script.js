@@ -13,7 +13,7 @@ let robotScore = 0; // Set robot score for start.
 let userScoreDisplay = document.getElementById('user-score');
 let robotScoreDisplay = document.getElementById('robot-score');
 
-// Global functions.
+// Functions
 
 // Retrieves username from user, and validates that the username is between one and six characters.
 function getUsername() {
@@ -49,7 +49,7 @@ goGetApi().then(
     }
 );
 
-// Decides who's turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array.
+// Decides whose turn it is, starting with questionNumber earlier set to 0 for consistent use in the questions array.
 function calculateWhoIsAnswering() { 
     let playerQuery = (questionNumber + 2) % 2;
     if (playerQuery) {
@@ -110,9 +110,7 @@ function changeDiv() {
         playerImage.style.background = 'url(.//assets/images/player-robot.png)';
         playerImage.style.backgroundPosition = 'center';
         playerImage.style.backgroundSize = 'cover';
-    } else {
-        playerImage.style.background = 'red';
-    }
+    } 
 }
 
 // Displays the question in the question-box div.
@@ -123,7 +121,7 @@ function displayQuestion() {
 
 // Calculate a random position for the correct answer, and display the correct answer in the correct position among incorrect answers in the other positions.
 function displayAnswers() {
-    answerSelection = 0; // Set answer selection to 0 so if no answer is selected I can trigger an alert or something.
+    answerSelection = 0; // Set answer selection to 0 so if no answer is selected I can trigger an alert.
     correctPosition = Math.floor(Math.random() * 4) + 1; // Calculate which position to place the correct answer.
     let incorrectPosition = 0; // Set incorrect position for incrementing.
     let answerOne = document.getElementById('answer-one');
@@ -164,7 +162,7 @@ function displayAnswers() {
     }
 }
 
-// User answer selection, but only if it is user's turn.
+// Changes the button styling based on user interaction.
 function answerOneSelect() {
         buttonOne.style.backgroundColor = 'rgb(var(--header-footer-color))';
         buttonTwo.style.backgroundColor = 'rgb(var(--window-color))';
@@ -203,11 +201,12 @@ buttonThree.addEventListener('click', answerThreeSelect);
 let buttonFour = document.getElementById('answer-four');
 buttonFour.addEventListener('click', answerFourSelect);
 
-// Generate robot answer. By changing (robotThinking < XX) developer can change how often the robot gets answers right. 
+// Generate robot answer. By changing (robotThinking < XX) developer can change how often the robot gets answers right.
+// Future iteration of the game can feature user-selected difficulty level by creating a function to retrieve that selection and using a variable to set robotThinking value.
 // By setting answerSelection to 5, the robot cannot get it right, preventing the robot from accidentally getting it right and changing the odds.
 function robotAnswer() {
     let robotThinking = Math.floor(Math.random() * 100);
-    if (robotThinking < 80) { 
+    if (robotThinking < 79) { 
         answerSelection = correctPosition;
     } else {
         answerSelection = 5;
@@ -249,6 +248,7 @@ function answerCheck() {
     }
 }
 
+// Ends qustion turn, calls winLoseorTie() to decide how to proceed.
 function advanceQuestion() {
     document.getElementById('answer-cover').style.visibility = ('hidden');
     userScoreDisplay.innerHTML = (userScore);
@@ -369,6 +369,7 @@ function robotTurn() {
     displayAnswers();
 }
 
+// Restarts game from beginning if user chooses to play again.
 function newGame() {
     document.getElementById('play-again-cover').style.visibility = ('hidden');
     questionNumber = 0;

@@ -9,15 +9,6 @@
     --text-border-color-disabled: 82,82,82;
 }
 
-.color-test-area {
-    --background-color: rgb(250, 250, 255);
-    --window-color: rgb(238, 240, 242);
-    --header-footer-color: rgb(219, 222, 217);
-    --division-color: rgb(236, 235, 238);
-    --text-border-color: rgb(28, 28, 28);
-    --text-border-color-disabled: rgb(82, 82, 82);
-}
-
 html {
     font-size: 62.5%;
     margin: 0;
